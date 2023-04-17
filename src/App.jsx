@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import './App.css'
-import Login from './Login.jsx';
+import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Register from './Register.jsx';
-import Reset from "./Reset.jsx";
-import Dashboard from './Dashboard';
+import Login from "./Login";
+import Register from "./Register";
+import Reset from "./Reset";
+import Dashboard from "./Dashboard";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Router>
         <Routes>
           <Route exact path="/" element={<Login />} />
@@ -19,28 +18,7 @@ function App() {
       </Router>
     </div>
   );
-  }
-
-  export default App
-
-{/* 
-rules_version = '2';
-
-service firebase.storage {
-
-  match /b/{bucket}/o {
-
-    match /{allPaths=**} {
-
-      allow read, write: if
-
-          request.time < timestamp.date(2023, 5, 11);
-
-    }
-
-  }
-
 }
- */}
 
+export default App;
 

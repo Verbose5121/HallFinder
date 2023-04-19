@@ -18,6 +18,7 @@ const Map = () => {
     const [title, setTitle] = useState("Hello");
     const [data, setData] = useState(dataGeo.features);
     const [fly, setFly] = useState([]);
+    const [route, setRoute] = useState("Please select your location")
     const geoCoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl,
@@ -41,9 +42,9 @@ const Map = () => {
             //   setZoom(13);
         });
 
-        MapBoxDirections.on("route", function (route) {
-            console.log(route);
-        });
+        // MapBoxDirections.on("route", function (routes) {
+        //     setRoute((routes.route[0].distance/1000).toFixed(2));
+        // });
 
 
         // if (map.current) return; // initialize map only once
@@ -92,7 +93,6 @@ const Map = () => {
 
     function flyToStore(currentFeature) {
         console.log("Second Hook");
-        
         map.flyTo({
             center: currentFeature.geometry.coordinates,
             zoom: 15,

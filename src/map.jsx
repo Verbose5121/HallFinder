@@ -25,11 +25,15 @@ const Map = () => {
         marker: {
             color: "orange",
         },
+        placeholder: ' Search Halls',
+        bbox: [-140.99778, 41.6751050889, -52.6480987209, 83.23324]
     });
     const MapBoxDirections = new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         unit: 'metric',
-        profile: 'mapbox/driving'
+        profile: 'mapbox/driving',
+        bbox: [-140.99778, 41.6751050889, -52.6480987209, 83.23324]
+
     })
 
     useEffect(() => {

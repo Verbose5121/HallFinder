@@ -3,34 +3,43 @@ export const dataGeo = {
     features: [
       {
         type: "Feature",
-        properties: { ID: 1, isAlien: "yes" },
+        properties: { ID: 1, isAlien: "yes",
+      name:"Marda Loop Community Association",
+    img:"src/images/halls/communityhall1.jpg",
+  address: "3130 - 16th Street SW Calgary, AB T2T 4G7, Canada" },
         geometry: {
           type: "Point",
-          coordinates: [-114.055048, 51.045345],
+          coordinates: [-114.1011762, 51.0256322],
         },
       },
       {
         type: "Feature",
-        properties: { ID: 2, isAlien: "" },
+        properties: { ID: 2, isAlien: "",name:"Strathcona Christie Aspen Community Association",
+        img:"src/images/halls/CH2.jpeg",
+      address: "277 Strathcona Dr SW, Calgary, AB T3H 2A4, Canada" },
         geometry: {
           type: "Point",
-          coordinates: [-113.934937, 51.147374],
+          coordinates: [-114.1825231, 51.0472992],
         },
       },
       {
         type: "Feature",
-        properties: { ID: 3, isAlien: "" },
+        properties: { ID: 3, isAlien: "", name:"Bankview Community Association",
+        img:"src/images/halls/CH3.jpeg",
+      address: "2418 17 St SW, Calgary, AB T2T 4M8, Canada" },
         geometry: {
           type: "Point",
-          coordinates: [-104.09957885742188, 33.91373381431625],
+          coordinates: [-114.1040631, 51.0325128],
         },
       },
       {
         type: "Feature",
-        properties: { ID: 4, isAlien: "" },
+        properties: { ID: 4, isAlien: "", name:"Palliser Bayview Pumphill Community Association",
+        img:"src/images/halls/CH4.jpeg",
+      address: "2323 Palliser Dr SW, Calgary, AB T2V 3S4, Canada" },
         geometry: {
           type: "Point",
-          coordinates: [-104.26162719726562, 33.67292566628718],
+          coordinates: [-114.1161444, 50.968834],
         },
       },
       {

@@ -11,6 +11,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import * as turf from "@turf/turf";
+import { fontSize } from "@mui/system";
 mapboxgl.accessToken = import.meta.env.VITE_PUBLIC_KEY;
 let data1 = dataGeo.features;
 
@@ -18,8 +20,8 @@ const Map = () => {
   const mapContainer = useRef(null);
   let map = useRef(null);
   let loc = useRef(null);
-    const [userLng, setUserLng] = useState("");
-    const [userLat, setUserLat] = useState("");
+  const [userLng, setUserLng] = useState("");
+  const [userLat, setUserLat] = useState("");
   const [lng, setLng] = useState(-114.0571411);
   const [lat, setLat] = useState(51.0453809);
   const [zoom, setZoom] = useState(10);
@@ -78,10 +80,10 @@ const Map = () => {
       showUserLocation: true,
     });
 
-    loc.on("geolocate", function(a) {
-        setUserLat(a.coords.latitude);
-        setUserLng(a.coords.longitude);
-    })
+    loc.on("geolocate", function (a) {
+      setUserLat(a.coords.latitude);
+      setUserLng(a.coords.longitude);
+    });
     map.addControl(loc, "top-left");
     map
       .addControl(new mapboxgl.NavigationControl())
@@ -106,38 +108,43 @@ const Map = () => {
 
   function flyToStore(currentFeature) {
     console.log("Second Hook");
-    map.flyTo({
-      center: currentFeature.geometry.coordinates,
-      zoom: 15,
-    });
+    // map.flyTo({
+    //   center: currentFeature.geometry.coordinates,
+    //   zoom: 15,
+    // });
 
-    let popup = new mapboxgl.Popup({ closeOnClick: false, closeButton: false }) // add popups
-          .setHTML(
-            `<h3>Address:</h3><h4>Name: ${currentFeature.properties.name}</h4>`
-          )
-    let marker1 = new mapboxgl.Marker({
-      color: "brown",
-      scale: 2,
-    })
-      .setLngLat(currentFeature.geometry.coordinates)
+    // let popup = new mapboxgl.Popup({ closeOnClick: false, closeButton: false }) // add popups
+    //       .setHTML(
+    //         `<h3>Address:</h3><h4>Name: ${currentFeature.properties.name}</h4>`
+    //       )
+    // let marker1 = new mapboxgl.Marker({
+    //   color: "brown",
+    //   scale: 2,
+    // })
+    //   .setLngLat(currentFeature.geometry.coordinates)
 
-      .setPopup(popup);
-      if (popup.isOpen()) {
+    //   .setPopup(popup);
+    //   if (popup.isOpen()) {
 
-        popup.remove();
-    
-    } else {
-    
-        marker1.addTo(map).togglePopup();
+    //     popup.remove();
 
-    
-    }
+    // } else {
 
-      
+    //     marker1.addTo(map).togglePopup();
 
-     
-    MapBoxDirections.setOrigin(userLat, userLng);
+    // }
+
+    console.log(currentFeature.geometry.coordinates);
+    console.log(userLng);
+    MapBoxDirections.setOrigin([userLng, userLat]);
     MapBoxDirections.setDestination(currentFeature.geometry.coordinates);
+
+    var distance = turf.distance(
+      [userLng, userLat],
+      currentFeature.geometry.coordinates,
+      { units: "kilometers" }
+    );
+    console.log("Distance is " + Math.round(distance) + " KM");
   }
 
   return (
@@ -163,6 +170,19 @@ const Map = () => {
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       {b.properties.address}
+                      <br />
+                      <Typography component={"span"}>
+                        {" "}
+                        {userLng
+                          ? Math.round(
+                              turf.distance(
+                                [userLng, userLat],
+                                b.geometry.coordinates,
+                                { units: "kilometers" }
+                              )
+                            ) + " KM"
+                          : ""}
+                      </Typography>
                     </Typography>
                   </CardContent>
                 </CardActionArea>

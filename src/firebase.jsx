@@ -81,6 +81,7 @@ const logout = () => {
   signOut(auth);
 };
 export {
+  firebaseConfig,
   auth,
   db,
   signInWithGoogle,

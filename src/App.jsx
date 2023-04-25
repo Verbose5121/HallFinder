@@ -7,12 +7,13 @@ import Dashboard from "./Dashboard";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useState } from "react";
 
-
 const style = {
   border: "2px solid purple",
   margin: 12,
   padding: 8,
 };
+
+
 
 function App() {
   const [dataSource, setDataSource] = useState(Array.from({ length: 20 }));
@@ -29,7 +30,15 @@ function App() {
   };
   return (
     <div className="app">
-
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/reset" element={<Reset />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Router>
+      
       <p>
         {" "}
         Title: <b>Hall Finder</b>
@@ -52,18 +61,13 @@ function App() {
         </InfiniteScroll>
       </div>
 
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route exact path="/register" element={<Register />} />
-          <Route exact path="/reset" element={<Reset />} />
-          <Route exact path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </Router>
 
-    </div>
-  );
-}
+
+      
+  
+          </div>
+        );
+      }
 
 export default App;
 

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import "mapbox-gl/dist/mapbox-gl.css";
+import Login2 from "./Login2";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -16,7 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <nav>
         <ul>
           <li>
-            <a className="nav-item" href="#">
+            <a className="nav-item" href="/">
               Home
             </a>
           </li>
@@ -33,6 +34,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <li>
             <a className="nav-item" href="#">
               Contact
+            </a>
+          </li>
+          <li>
+            <a className="nav-item" href="login">
+              Sign in
             </a>
           </li>
         </ul>

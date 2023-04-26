@@ -9,13 +9,12 @@
 }
 body{
     font-family: "Montserrat", sans-serif;
-    background: #88bdbc;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: -20px 0 50 px;
+    /* display:flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* height: 100vh; */
+    margin: 220px 0 50 px;
 }
 
 hi{
@@ -40,13 +39,13 @@ p{
 span{
     font-size: 18px;
     font-weight: bold;
-    color: rgb(240, 213, 213);
+    color: rgb(255, 255, 255);
 }
 
 h1 {
     text-align: center;
     font-weight: bolder;
-    color: rgb(240, 213, 213);
+    color: rgb(255, 255, 255);
     
 }
 
@@ -105,7 +104,7 @@ form {
 }
 
 input {
-	background-color: #efdedef3;
+	background-color: #fffffff3;
 	border: none;
 	padding: 12px 15px;
 	margin: 8px 0;
@@ -124,6 +123,7 @@ input {
 	max-width: 100%;
 	min-height: 480px;
 	height: 650px;
+	margin: 7% 25%;
 }
 
 .form-container {

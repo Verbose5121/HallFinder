@@ -6,13 +6,6 @@
   font-family: "Wanderlust", sans-serif;
 }
 
-h2 {
-  font-size: 25px;
-  color: "#112D32";
-  text-align: center;
-  font-family: "Wanderlust", sans-serif;
-}
-
 nav {
   width: 100%;
 }
@@ -27,12 +20,15 @@ nav ul {
   border-bottom: 2px solid white;
   padding-bottom: 10px;
 } */
-.nav-item:hover, .nav-item:focus{
-    border-bottom: 2px solid white;
-    padding-bottom: 10px;
-  }
+.nav-item:hover,
+.nav-item:focus {
+  border-bottom: 2px solid white;
+  padding-bottom: 10px;
+}
 nav a {
   text-decoration: none;
-  color: #fff1ff;
+  color: #ffffff;
   padding: 10px;
+  font-weight: normal;
+  font-size: 15px;
 }

@@ -1,49 +1,38 @@
-.abc{
-    background: radial-gradient(circle at center, cyan, rgb(77, 136, 212), #88BDBC);
-    padding-bottom: 20px;
-    clip-path: polygon(
-    0 0, /* left top */
-    100% 0, /* right top */ 
-    100% 100%, /* right bottom */
-    0 90% /* left bottom */
-  );                                               
+.abc {
+  background-color: #112d32;
+  height: 75px;
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Wanderlust", sans-serif;
 }
 
-h2{
-font-size: 25px;
-color:"#112D32";
-text-align: center;
-font-family: 'Wanderlust', sans-serif;
-                                                
+h2 {
+  font-size: 25px;
+  color: "#112D32";
+  text-align: center;
+  font-family: "Wanderlust", sans-serif;
 }
 
-.btn {
-    background: #254E58;
-    background-image: -webkit-linear-gradient(top, #254E58, #112D32);
-    background-image: -moz-linear-gradient(top, #254E58, #112D32);
-    background-image: -ms-linear-gradient(top, #254E58, #112D32);
-    background-image: -o-linear-gradient(top, #254E58, #112D32);
-    background-image: linear-gradient(to bottom, #254E58, #112D32);
-    -webkit-border-radius: 46;
-    -moz-border-radius: 46;
-    border-radius: 46px;
-    text-shadow: 0px 0px 0px #666666;
-    -webkit-box-shadow: 7px 7px 10px #666666;
-    -moz-box-shadow: 7px 7px 10px #666666;
-    box-shadow: 7px 7px 10px #666666;
-    color: #88BDBC;
-    font-size: 22px;
-    padding: 17px 20px 17px 20px;
-    border: solid #1f628d 2px;
-    text-decoration: none;
+nav {
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 45px 0 0 450px;
+  display: flex;
+  gap: 5rem;
+}
+/* nav li:hover, nav li:focus{
+  border-bottom: 2px solid white;
+  padding-bottom: 10px;
+} */
+.nav-item:hover, .nav-item:focus{
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
   }
-  
-  .btn:hover {
-    background: #00ffff;
-    background-image: -webkit-linear-gradient(top, #00ffff, #112D32);
-    background-image: -moz-linear-gradient(top, #00ffff, #112D32);
-    background-image: -ms-linear-gradient(top, #00ffff, #112D32);
-    background-image: -o-linear-gradient(top, #00ffff, #112D32);
-    background-image: linear-gradient(to bottom, #00ffff, #112D32);
-    text-decoration: none;
-  }
+nav a {
+  text-decoration: none;
+  color: #fff1ff;
+  padding: 10px;
+}

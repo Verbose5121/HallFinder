@@ -127,7 +127,7 @@ body{
 
 
 .marker {
-  background-image: url("src/images/Icons-Land-Vista-Map-Markers-Map-Marker-Flag-4-Right-Azure.256.png");
+  background-image: url("src/images/marker.png");
   background-size: cover;
   width: 100px;
   height: 100px;

@@ -1,3 +1,5 @@
+import React, { useRef, useEffect, useState } from 'react';
+import Map from './map';
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Login";
@@ -6,7 +8,6 @@ import Register from "./Register";
 import Reset from "./Reset";
 import Dashboard from "./Dashboard";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useState } from "react";
 
 const style = {
   border: "2px solid purple",
@@ -31,7 +32,8 @@ function App() {
     <div className="app">
       <Router>
         <Routes>
-          <Route exact path="/" element={<Login2 />} />
+          <Route exact path="/" element={<Map />} />
+          <Route exact path="/login" element={<Login2 />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/dashboard" element={<Dashboard />} />

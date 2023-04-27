@@ -8,6 +8,8 @@ import Register from "./Register";
 import Reset from "./Reset";
 import Dashboard from "./Dashboard";
 import InfiniteScroll from "react-infinite-scroll-component";
+import BookingForm from './BookingForm';
+
 
 const style = {
   border: "2px solid purple",
@@ -37,6 +39,7 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/hall" element={<BookingForm />} />
         </Routes>
       </Router>
   

@@ -169,20 +169,13 @@ const Map = () => {
                       {b.properties.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {b.properties.address}
-                      <br />
-                      <Typography component={"span"}>
-                        {" "}
-                        {userLng
-                          ? Math.round(
-                              turf.distance(
-                                [userLng, userLat],
+                      {b.properties.address}<br></br>
+                   <h3>   {userLng ? Math.round(turf.distance([userLng, userLat],
                                 b.geometry.coordinates,
                                 { units: "kilometers" }
                               )
-                            ) + " KM"
-                          : ""}
-                      </Typography>
+                            ) + " Km Away": ""}</h3>
+
                     </Typography>
                   </CardContent>
                 </CardActionArea>

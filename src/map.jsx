@@ -173,15 +173,11 @@ const Map = () => {
                       <br />
                       <Typography component={"span"}>
                         {" "}
-                        {userLng
-                          ? Math.round(
-                              turf.distance(
-                                [userLng, userLat],
+                        {userLng ? Math.round(turf.distance([userLng, userLat],
                                 b.geometry.coordinates,
                                 { units: "kilometers" }
                               )
-                            ) + " KM"
-                          : ""}
+                            ) + " KM": "hi"}
                       </Typography>
                     </Typography>
                   </CardContent>

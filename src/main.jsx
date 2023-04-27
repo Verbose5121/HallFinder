@@ -8,12 +8,16 @@ import Login2 from "./Login2";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <div className="abc">
+    <a width="300px"
+        height="80px"
+        style={{ margin: "auto 40px" }} href="/">
+
       <img
         src="src/images/HallFinder-1 (6).png"
         width="300px"
         height="80px"
         style={{ margin: "auto 40px" }}
-      />
+      /></a>
       <nav>
         <ul>
           <li>

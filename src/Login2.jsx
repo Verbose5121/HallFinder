@@ -25,7 +25,7 @@ function Login2() {
       // maybe trigger a loading screen
       return;
     }
-    if (user) navigate("/dashboard");
+    if (user) navigate("/");
   }, [user, loading]);
 
   return (
@@ -122,7 +122,6 @@ function Login2() {
     </div>
   </div>
 
-    {/* <script src="main.js"></script> */}
   </>
 
 

@@ -170,11 +170,11 @@ const Map = () => {
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       {b.properties.address}<br></br>
-                      {userLng ? Math.round(turf.distance([userLng, userLat],
+                   <h3>   {userLng ? Math.round(turf.distance([userLng, userLat],
                                 b.geometry.coordinates,
                                 { units: "kilometers" }
                               )
-                            ) + " KM": ""}
+                            ) + " Km Away": ""}</h3>
 
                     </Typography>
                   </CardContent>

@@ -37,3 +37,8 @@ nav a {
   font-weight: normal;
   font-size: 15px;
 }
+
+label {
+  text-align: left;
+  align-content: left;
+}

@@ -52,59 +52,24 @@ export default function BookingForm () {
             );
     }
 
-    // useEffect(() => {
-    //     if(currentUser?.photoURL) {
-    //         setPhotoURL(currentUser.photoURL);
-    //     }
-    // }, [currentUser])
-
-    
-    // const [user, error] = useAuthState(auth);
-    // const [userName, setUserName] = useState("");
-      
-    // const fetchUserName = async () => {
-
-    //     try {
-    //       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-    //       const doc = await getDocs(q);
-    //       const data = doc.docs[0].data();
-    
-    //       setUserName(data.name);
-    //       console.log(data.name)
-    //     } catch (err) {
-    //       console.error(err);
-    //       alert("An error occured while fetching user data");
-    //     }
-    //   };
-    
-    //   useEffect(() => {
-    //     if (loading) return;
-    
-    //     fetchUserName();
-    //   }, [user, loading]);
-
     console.log(currentUser);
     return (
-        <div className="bookForm">
-            <form className="bookForm-form">
-            <input type="text" placeholder="Name" /> 
-            <input type="text" placeholder="####-####-####-####" />
-            <input type="file" onChange={handleChange} />
+        <div className="bookingForm">
+            <form className="bookingDetailsForm">
+            <label for="fullname">Full Name:</label><br></br>
+            <input type="text" id="fullname" name="fullname" placeholder="Name" /><br></br>
+            <label for="cc">Credit Card #:</label><br></br> 
+            <input type="text" id="cc" name="cc" placeholder="####-####-####-####" /><br></br>
+            <label for="photoid">Upload Photo ID:</label><br></br> 
+            <input type="file" id="photoid" name="photoid" onChange={handleChange} />
+
             <button onClick={handleUpload}>
                 Upload
             </button>
-            <p>{percent} "% done"</p>
-            <img src={photoURL} alt="Avatar" className="avatar" />
             {console.log(photoURL)}
             {console.log(photo)}
             {photo && (
             <div>
-            <img
-                className="photoid"
-                alt="not found"
-                src={photoURL}
-            />
-            <br />
             <button onClick={() => setPhoto(null)}>Remove</button>
             </div> )}
             </form>
@@ -152,59 +117,3 @@ export default function BookingForm () {
 //   );
 
 
-
-
-
-
-
-
-// function BookForm() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [user, loading, error] = useAuthState(auth);
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     if (loading) {
-//       // maybe trigger a loading screen
-//       return;
-//     }
-//     if (user) navigate("/dashboard");
-//   }, [user, loading]);
-
-//   return (
-//     <div className="book">
-//       <div className="book__container">
-//         <input
-//           type="text"
-//           className="booking__textBox"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//           placeholder="E-mail Address"
-//         />
-//         <input
-//           type="password"
-//           className="login__textBox"
-//           value={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//           placeholder="Password"
-//         />
-//         <button
-//           className="login__btn"
-//           onClick={() => logInWithEmailAndPassword(email, password)}
-//         >
-//           Login
-//         </button>
-//         <button className="login__btn login__google" onClick={signInWithGoogle}>
-//           Login with Google
-//         </button>
-//         <div>
-//           <Link to="/reset">Forgot Password</Link>
-//         </div>
-//         <div>
-//           Don't have an account? <Link to="/register">Register</Link> now.
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }

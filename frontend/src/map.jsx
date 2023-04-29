@@ -4,8 +4,6 @@ import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loade
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import Geolocation from "@mapbox/mapbox-gl-geocoder/lib/geolocation";
 import { dataGeo } from "./data.js";
-//import MapboxDirections from "@mapbox/mapbox-gl-directions"
-import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -40,12 +38,7 @@ const Map = () => {
     placeholder: " Search Halls",
     bbox: [-140.99778, 41.6751050889, -52.6480987209, 83.23324],
   });
-  const MapBoxDirections = new MapboxDirections({
-    accessToken: mapboxgl.accessToken,
-    unit: "metric",
-    profile: "mapbox/driving",
-    bbox: [(-140.99778, 41.6751050889), (-52.6480987209, 83.23324)],
-  });
+  
 
   useEffect(() => {
     geoCoder.on("result", function (results) {
@@ -56,15 +49,10 @@ const Map = () => {
       //   setZoom(13);
     });
 
-    // MapBoxDirections.on("route", function (routes) {
-    //     setRoute((routes.route[0].distance/1000).toFixed(2));
-    // });
-
     // if (map.current) return; // initialize map only once
     map = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v12",
-      //style: "https://studio.mapbox.com/tilesets/prabhsagoo.clgda45tl00mo2io1woyd8q34-9m1pw",
       center: [lng, lat],
       zoom: zoom,
     });
@@ -89,7 +77,6 @@ const Map = () => {
     map.addControl(loc, "top-left");
     map
       .addControl(new mapboxgl.NavigationControl())
-      .addControl(MapBoxDirections, "top-left");
 
     //Array data.map
     data.map((a) => {
@@ -189,7 +176,7 @@ const Map = () => {
                                 { units: "kilometers" }
                               )
                             ) + " Km Away"
-                          : "" + data2[0]}
+                          : ""}
                       </h3>
                     </Typography>
                   </CardContent>

@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import * as turf from "@turf/turf";
 import { fontSize } from "@mui/system";
+import axios, { isCancel, AxiosError } from "axios";
 mapboxgl.accessToken = import.meta.env.VITE_PUBLIC_KEY;
 let data1 = dataGeo.features;
 
@@ -20,6 +21,7 @@ const Map = () => {
   const mapContainer = useRef(null);
   let map = useRef(null);
   let loc = useRef(null);
+  const [data2, setData2] = useState([]);
   const [userLng, setUserLng] = useState("");
   const [userLat, setUserLat] = useState("");
   const [lng, setLng] = useState(-114.0571411);
@@ -104,6 +106,12 @@ const Map = () => {
     });
 
     console.log("useEffect");
+    async function getAllData() {
+      return await (await fetch("/api")).json();
+
+      // setData2(newData);
+    }
+    getAllData();
   }, [data]);
 
   function flyToStore(currentFeature) {
@@ -169,13 +177,20 @@ const Map = () => {
                       {b.properties.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {b.properties.address}<br></br>
-                   <h3>   {userLng ? Math.round(turf.distance([userLng, userLat],
+                      {b.properties.address}
+                      <br></br>
+                      <h3>
+                        {" "}
+                        {userLng
+                          ? Math.round(
+                              turf.distance(
+                                [userLng, userLat],
                                 b.geometry.coordinates,
                                 { units: "kilometers" }
                               )
-                            ) + " Km Away": ""}</h3>
-
+                            ) + " Km Away"
+                          : "" + data2[0]}
+                      </h3>
                     </Typography>
                   </CardContent>
                 </CardActionArea>

@@ -5,7 +5,7 @@ import {
   auth,
   registerWithEmailAndPassword,
   signInWithGoogle,
-} from "./firebase";
+} from "../../backend/Firebase/firebase";
 import "./Register.css";
 
 function Register() {

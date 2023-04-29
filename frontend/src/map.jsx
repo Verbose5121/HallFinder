@@ -16,10 +16,10 @@ mapboxgl.accessToken = import.meta.env.VITE_PUBLIC_KEY;
 let data1 = dataGeo.features;
 
 const Map = () => {
+
   const mapContainer = useRef(null);
   let map = useRef(null);
   let loc = useRef(null);
-  const [data2, setData2] = useState([]);
   const [userLng, setUserLng] = useState("");
   const [userLat, setUserLat] = useState("");
   const [lng, setLng] = useState(-114.0571411);
@@ -28,14 +28,13 @@ const Map = () => {
   const [title, setTitle] = useState("Hello");
   const [data, setData] = useState(dataGeo.features);
   const [fly, setFly] = useState([]);
-  const [route, setRoute] = useState("Please select your location");
   const geoCoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl,
     marker: {
       color: "orange",
     },
-    placeholder: " Search Halls",
+    placeholder: "Enter your location",
     bbox: [-140.99778, 41.6751050889, -52.6480987209, 83.23324],
   });
   
@@ -44,8 +43,8 @@ const Map = () => {
     geoCoder.on("result", function (results) {
       console.log(results.result.place_name);
       setTitle(results.result.place_name);
-      setLng(results.result.center[0]);
-      setLat(results.result.center[1]);
+      setUserLng(results.result.center[0]);
+      setUserLat(results.result.center[1]);
       //   setZoom(13);
     });
 
@@ -58,7 +57,7 @@ const Map = () => {
     });
     //Geocoder
     // map
-    //   .addControl(geoCoder, "top-right")
+      map.addControl(geoCoder, "top-left")
     loc = new mapboxgl.GeolocateControl({
       positionOptions: {
         enableHighAccuracy: true,
@@ -71,9 +70,12 @@ const Map = () => {
     });
 
     loc.on("geolocate", function (a) {
+      console.log(a); 
       setUserLat(a.coords.latitude);
       setUserLng(a.coords.longitude);
     });
+
+
     map.addControl(loc, "top-left");
     map
       .addControl(new mapboxgl.NavigationControl())
@@ -130,9 +132,7 @@ const Map = () => {
     // }
 
     console.log(currentFeature.geometry.coordinates);
-    console.log(userLng);
-    MapBoxDirections.setOrigin([userLng, userLat]);
-    MapBoxDirections.setDestination(currentFeature.geometry.coordinates);
+    
 
     var distance = turf.distance(
       [userLng, userLat],

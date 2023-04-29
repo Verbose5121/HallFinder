@@ -145,10 +145,10 @@ const Map = () => {
   return (
     <div className="data" id="data">
       <div className="list">
-        <ul id="listData">
+        <ul id="listData" key={Math.random()}>
           {data1.map((b, index) => {
             return (
-              <Card
+              <Card key={Math.random()}
                 sx={{ Width: 345 }}
                 className="card"
                 onClick={() => {
@@ -156,17 +156,17 @@ const Map = () => {
                 }}
               >
                 <CardActionArea className="card1">
-                  <CardMedia />
+                  <CardMedia>
                   <img src={b.properties.img} height="200px" width="100%" />
-
+                  </CardMedia>
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                       {b.properties.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       {b.properties.address}
-                      <br></br>
-                      <h3>
+                      <br />
+                      <span style={{fontSize:"18px", color:"black"}}>
                         {" "}
                         {userLng
                           ? Math.round(
@@ -177,7 +177,7 @@ const Map = () => {
                               )
                             ) + " Km Away"
                           : ""}
-                      </h3>
+                      </span>
                     </Typography>
                   </CardContent>
                 </CardActionArea>

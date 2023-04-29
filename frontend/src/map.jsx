@@ -13,7 +13,6 @@ import * as turf from "@turf/turf";
 import { fontSize } from "@mui/system";
 import axios, { isCancel, AxiosError } from "axios";
 mapboxgl.accessToken = import.meta.env.VITE_PUBLIC_KEY;
-let data1 = dataGeo.features;
 
 const Map = () => {
 
@@ -25,8 +24,8 @@ const Map = () => {
   const [lng, setLng] = useState(-114.0571411);
   const [lat, setLat] = useState(51.0453809);
   const [zoom, setZoom] = useState(10);
-  const [title, setTitle] = useState("Hello");
   const [data, setData] = useState(dataGeo.features);
+  const [filterData, setFilterData] = useState(data);
   const [fly, setFly] = useState([]);
   const geoCoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
@@ -42,9 +41,12 @@ const Map = () => {
   useEffect(() => {
     geoCoder.on("result", function (results) {
       console.log(results.result.place_name);
-      setTitle(results.result.place_name);
       setUserLng(results.result.center[0]);
       setUserLat(results.result.center[1]);
+      setFilterData(filterData.map((b)=>(Object.assign(b, {distance:(turf.distance([results.result.center[0], results.result.center[1]],b.geometry.coordinates,{ units: "kilometers" }
+      ))}))))
+      setFilterData(filterData.sort((a,b)=>a.distance-b.distance));
+
       //   setZoom(13);
     });
 
@@ -73,6 +75,10 @@ const Map = () => {
       console.log(a); 
       setUserLat(a.coords.latitude);
       setUserLng(a.coords.longitude);
+      setFilterData(filterData.map((b)=>(Object.assign(b, {distance:(turf.distance([a.coords.longitude, a.coords.latitude],b.geometry.coordinates,{ units: "kilometers" }
+      ))}))))
+      setFilterData(filterData.sort((a,b)=>a.distance-b.distance));
+      console.log(filterData);
     });
 
 
@@ -146,7 +152,7 @@ const Map = () => {
     <div className="data" id="data">
       <div className="list">
         <ul id="listData" key={Math.random()}>
-          {data1.map((b, index) => {
+          {filterData.map((b, index) => {
             return (
               <Card key={Math.random()}
                 sx={{ Width: 345 }}
@@ -169,13 +175,7 @@ const Map = () => {
                       <span style={{fontSize:"18px", color:"black"}}>
                         {" "}
                         {userLng
-                          ? Math.round(
-                              turf.distance(
-                                [userLng, userLat],
-                                b.geometry.coordinates,
-                                { units: "kilometers" }
-                              )
-                            ) + " Km Away"
+                          ? Math.round(b.distance) + " Km Away"
                           : ""}
                       </span>
                     </Typography>

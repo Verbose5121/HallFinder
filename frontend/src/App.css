@@ -129,8 +129,8 @@ body{
 .marker {
   background-image: url("src/images/marker.png");
   background-size: cover;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   cursor: pointer;
   color: red;

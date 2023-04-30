@@ -4,6 +4,9 @@ import App from "./App";
 import "./index.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Login2 from "./Login2";
+import LoginIcon from "@mui/icons-material/Login";
+import Tooltip from '@mui/material/Tooltip';
+import HomeIcon from '@mui/icons-material/Home';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -21,8 +24,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <nav>
         <ul>
           <li>
-            <a className="nav-item" href="/">
-              Home
+            <a className="nav-item" href="/"><HomeIcon fontSize="medium" style={{marginTop:"-5px"}}>
+              Home</HomeIcon>
             </a>
           </li>
           <li>
@@ -46,7 +49,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             </a>
           </li>
         </ul>
-      </nav>
+      </nav> <Tooltip title="Login"><a alt="Login" className="nav-item" href="login" style={{marginRight:"40px"}}>
+            <LoginIcon fontSize="large" />
+            </a></Tooltip> 
     </div>
     <App />
   </React.StrictMode>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle } from "../../backend/Firebase/firebase";
+import { auth, signInWithGoogle } from "../../backend/Firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
 
@@ -37,7 +37,7 @@ function Login() {
         />
         <button
           className="login__btn"
-          onClick={() => logInWithEmailAndPassword(email, password)}
+          // onClick={() => logInWithEmailAndPassword(email, password)}
         >
           Login
         </button>

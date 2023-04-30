@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   auth,
-  logInWithEmailAndPassword,
   signInWithGoogle,
   registerWithEmailAndPassword,
 } from "../../backend/Firebase/firebase";
@@ -17,13 +16,36 @@ function Login2() {
   const [user, loading, error] = useAuthState(auth);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-
-  const register = () => {
-    if (!name) alert("Please enter name");
-    registerWithEmailAndPassword(name, email, password);
-  };
-
   const container = document.getElementById("container");
+
+  //Registration
+  const Register = async (e) => {
+    e.preventDefault();
+    if (!name) alert("Please enter name");
+    const res = await fetch("/api/user/reg", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([name, email, password]),
+    });
+    if (!res.ok) {
+      console.log("bad thing happened");
+      const error = await res.json();
+      setErrorMessage(error.code);
+    } else {
+      const response = await res.json();
+      console.log("response data is", response);
+      Swal.fire({
+        title: "Registration Successful!",
+        text: "Hi! "+response.displayName+", Welcome to HallFinder!",
+        icon: "success",
+        timer: 3000,
+      }).then(() => {
+        navigate("/");
+      });
+    }
+  };
 
   //Login with email and password
   const Login = async (e) => {
@@ -47,11 +69,9 @@ function Login2() {
         text: response.user.email,
         icon: "success",
         timer: 3000,
-      }).then(()=>{
+      }).then(() => {
         navigate("/");
-        
       });
-      
     }
   };
 
@@ -67,7 +87,7 @@ function Login2() {
     <>
       <div className="container" id="container">
         <div className="form-container sign-up-container">
-          <form action="#">
+          <form onSubmit={Register}>
             <h1>Create Account</h1>
             <div className="social-container"></div>
             <input
@@ -91,14 +111,16 @@ function Login2() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
             />
+            <p style={{ color: "red" }}>{errorMessage}</p>
+
             <button
+              type="submit"
               style={{
                 backgroundColor: "#112d32",
                 width: "10rem",
                 margin: "20px 0 0 0",
               }}
               className="register__btn"
-              onClick={register}
             >
               Sign Up
             </button>

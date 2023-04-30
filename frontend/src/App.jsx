@@ -3,10 +3,10 @@ import Map from './map';
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Login";
-import Login2 from "./Login2";
-import Register from "./Register";
 import Reset from "./Reset";
-import Dashboard from "./Dashboard";
+import HallPage from "./HallPage";
+import EventPage from "./EventPage";
+import UserProfile from "./UserProfile";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const style = {
@@ -33,10 +33,12 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Map />} />
-          <Route exact path="/login" element={<Login2 />} />
-          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
           <Route exact path="/reset" element={<Reset />} />
-          <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/viewhall" element={<HallPage />} />
+          <Route exact path="/userprofile" element={<UserProfile />} />
+          <Route exact path="/viewevent" element={<EventPage />} />
+
         </Routes>
       </Router>
   

@@ -3,7 +3,7 @@ import "./App.css";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import Geolocation from "@mapbox/mapbox-gl-geocoder/lib/geolocation";
-import { dataGeo } from "./data.js";
+import { dataGeo } from "../../backend/data.js";
 //import MapboxDirections from "@mapbox/mapbox-gl-directions"
 import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
 import Card from "@mui/material/Card";

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, logInWithEmailAndPassword, signInWithGoogle,
-  registerWithEmailAndPassword} from "./firebase";
+import { auth, signInWithGoogle } from "../../backend/Firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./style.css";
 
@@ -97,8 +96,9 @@ function Login() {
 
          <button style={{backgroundColor:"#112d32", width:"10rem"}}
           className="login__btn"
-          onClick={() => logInWithEmailAndPassword(email, password)}
-        >Login
+          // onClick={() => logInWithEmailAndPassword(email, password)}
+        >
+          Login
         </button>
         
         <div class="separator">OR</div>

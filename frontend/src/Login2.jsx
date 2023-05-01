@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  auth,
-  signInWithGoogle,
-  registerWithEmailAndPassword,
-} from "../../backend/Firebase/firebase";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, redirect, useNavigate } from "react-router-dom";
+import { auth, signInWithGoogle } from "../../backend/Firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./style2.css";
 import Swal from "sweetalert2";
+import { AuthContext } from "./components/auth";
 
 function Login2() {
   const [email, setEmail] = useState("");
@@ -17,8 +14,13 @@ function Login2() {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const container = document.getElementById("container");
-
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
   //Registration
+  // if (currentUser) {
+  //   return <Redirect to="/" />;
+  // }
+
+  
   const Register = async (e) => {
     e.preventDefault();
     if (!name) alert("Please enter name");
@@ -36,12 +38,14 @@ function Login2() {
     } else {
       const response = await res.json();
       console.log("response data is", response);
+      setCurrentUser(response);
       Swal.fire({
         title: "Registration Successful!",
-        text: "Hi! "+response.displayName+", Welcome to HallFinder!",
+        text: "Hi! " + response.displayName + ", Welcome to HallFinder!",
         icon: "success",
         timer: 3000,
-      }).then(() => {
+      })
+      .then(() => {
         navigate("/");
       });
     }
@@ -64,9 +68,10 @@ function Login2() {
     } else {
       const response = await res.json();
       console.log("response data is", response);
+      setCurrentUser(response);
       Swal.fire({
         title: "Login Successful!",
-        text: response.user.email,
+        text: response.email,
         icon: "success",
         timer: 3000,
       }).then(() => {
@@ -75,13 +80,9 @@ function Login2() {
     }
   };
 
-  // useEffect(() => {
-  //   if (loading) {
-  //     // maybe trigger a loading screen
-  //     return;
-  //   }
-  //   // if (user) navigate("/");
-  // }, [user, loading]);
+  useEffect(()=>{
+    localStorage.setItem("user", currentUser);
+}, [currentUser])
 
   return (
     <>

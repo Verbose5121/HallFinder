@@ -8,6 +8,7 @@ import Register from "./Register";
 import Reset from "./Reset";
 import Dashboard from "./Dashboard";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { AuthProvider } from './components/auth';
 
 const style = {
   border: "2px solid purple",
@@ -30,6 +31,7 @@ function App() {
   };
   return (
     <div className="app">
+      <AuthProvider>
       <Router>
         <Routes>
           <Route exact path="/" element={<Map />} />
@@ -39,7 +41,7 @@ function App() {
           <Route exact path="/dashboard" element={<Dashboard />} />
         </Routes>
       </Router>
-  
+      </AuthProvider>
           </div>
         );
       }

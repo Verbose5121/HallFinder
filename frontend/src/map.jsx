@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useContext } from "react";
 import "./App.css";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
@@ -12,10 +12,13 @@ import { CardActionArea } from "@mui/material";
 import * as turf from "@turf/turf";
 import { fontSize } from "@mui/system";
 import axios, { isCancel, AxiosError } from "axios";
+import { AuthContext } from "./components/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+
 mapboxgl.accessToken = import.meta.env.VITE_PUBLIC_KEY;
 
 const Map = () => {
-
   const mapContainer = useRef(null);
   let map = useRef(null);
   let loc = useRef(null);
@@ -27,6 +30,7 @@ const Map = () => {
   const [data, setData] = useState(dataGeo.features);
   const [filterData, setFilterData] = useState(data);
   const [fly, setFly] = useState([]);
+  const { currentUser } = useContext(AuthContext);
   const geoCoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl,
@@ -36,16 +40,24 @@ const Map = () => {
     placeholder: "Enter your location",
     bbox: [-140.99778, 41.6751050889, -52.6480987209, 83.23324],
   });
-  
 
   useEffect(() => {
     geoCoder.on("result", function (results) {
       console.log(results.result.place_name);
       setUserLng(results.result.center[0]);
       setUserLat(results.result.center[1]);
-      setFilterData(filterData.map((b)=>(Object.assign(b, {distance:(turf.distance([results.result.center[0], results.result.center[1]],b.geometry.coordinates,{ units: "kilometers" }
-      ))}))))
-      setFilterData(filterData.sort((a,b)=>a.distance-b.distance));
+      setFilterData(
+        filterData.map((b) =>
+          Object.assign(b, {
+            distance: turf.distance(
+              [results.result.center[0], results.result.center[1]],
+              b.geometry.coordinates,
+              { units: "kilometers" }
+            ),
+          })
+        )
+      );
+      setFilterData(filterData.sort((a, b) => a.distance - b.distance));
 
       //   setZoom(13);
     });
@@ -59,7 +71,7 @@ const Map = () => {
     });
     //Geocoder
     // map
-      map.addControl(geoCoder, "top-left")
+    map.addControl(geoCoder, "top-left");
     loc = new mapboxgl.GeolocateControl({
       positionOptions: {
         enableHighAccuracy: true,
@@ -72,19 +84,26 @@ const Map = () => {
     });
 
     loc.on("geolocate", function (a) {
-      console.log(a); 
+      console.log(a);
       setUserLat(a.coords.latitude);
       setUserLng(a.coords.longitude);
-      setFilterData(filterData.map((b)=>(Object.assign(b, {distance:(turf.distance([a.coords.longitude, a.coords.latitude],b.geometry.coordinates,{ units: "kilometers" }
-      ))}))))
-      setFilterData(filterData.sort((a,b)=>a.distance-b.distance));
+      setFilterData(
+        filterData.map((b) =>
+          Object.assign(b, {
+            distance: turf.distance(
+              [a.coords.longitude, a.coords.latitude],
+              b.geometry.coordinates,
+              { units: "kilometers" }
+            ),
+          })
+        )
+      );
+      setFilterData(filterData.sort((a, b) => a.distance - b.distance));
       console.log(filterData);
     });
 
-
     map.addControl(loc, "top-left");
-    map
-      .addControl(new mapboxgl.NavigationControl())
+    map.addControl(new mapboxgl.NavigationControl());
 
     //Array data.map
     data.map((a) => {
@@ -108,6 +127,9 @@ const Map = () => {
     }
     getAllData();
   }, [data]);
+
+  const a = JSON.parse(localStorage.getItem("user"));
+  console.log(a.uid);
 
   function flyToStore(currentFeature) {
     console.log("Second Hook");
@@ -138,7 +160,6 @@ const Map = () => {
     // }
 
     console.log(currentFeature.geometry.coordinates);
-    
 
     var distance = turf.distance(
       [userLng, userLat],
@@ -154,7 +175,8 @@ const Map = () => {
         <ul id="listData" key={Math.random()}>
           {filterData.map((b, index) => {
             return (
-              <Card key={Math.random()}
+              <Card
+                key={Math.random()}
                 sx={{ Width: 345 }}
                 className="card"
                 onClick={() => {
@@ -163,7 +185,7 @@ const Map = () => {
               >
                 <CardActionArea className="card1">
                   <CardMedia>
-                  <img src={b.properties.img} height="200px" width="100%" />
+                    <img src={b.properties.img} height="200px" width="100%" />
                   </CardMedia>
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
@@ -172,11 +194,9 @@ const Map = () => {
                     <Typography variant="body2" color="text.secondary">
                       {b.properties.address}
                       <br />
-                      <span style={{fontSize:"18px", color:"black"}}>
+                      <span style={{ fontSize: "18px", color: "black" }}>
                         {" "}
-                        {userLng
-                          ? Math.round(b.distance) + " Km Away"
-                          : ""}
+                        {userLng ? Math.round(b.distance) + " Km Away" : ""}
                       </span>
                     </Typography>
                   </CardContent>

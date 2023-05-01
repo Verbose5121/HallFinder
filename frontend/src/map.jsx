@@ -30,7 +30,8 @@ const Map = () => {
   const [data, setData] = useState(dataGeo.features);
   const [filterData, setFilterData] = useState(data);
   const [fly, setFly] = useState([]);
-  const { currentUser } = useContext(AuthContext);
+  let currentUserData = [];
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
   const geoCoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl,
@@ -40,6 +41,17 @@ const Map = () => {
     placeholder: "Enter your location",
     bbox: [-140.99778, 41.6751050889, -52.6480987209, 83.23324],
   });
+
+  useEffect(()=>{
+    const item = localStorage.getItem("user");
+    console.log(item);
+    if(localStorage.getItem("user")!= "undefined"|| null){
+      currentUserData = JSON.parse(localStorage.getItem("user"));
+     // console.log("abc"+currentUserData.uid);
+      setCurrentUser(currentUserData);
+    }
+  },[]);
+  
 
   useEffect(() => {
     geoCoder.on("result", function (results) {
@@ -128,9 +140,7 @@ const Map = () => {
     getAllData();
   }, [data]);
 
-  const a = JSON.parse(localStorage.getItem("user"));
-  console.log(a.uid);
-
+  
   function flyToStore(currentFeature) {
     console.log("Second Hook");
     // map.flyTo({

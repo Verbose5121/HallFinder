@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import "./style2.css";
 import Swal from "sweetalert2";
 import { AuthContext } from "./components/auth";
+import Alert from '@mui/material/Alert';
 
 function Login2() {
   const [email, setEmail] = useState("");
@@ -81,7 +82,7 @@ function Login2() {
   };
 
   useEffect(()=>{
-    localStorage.setItem("user", currentUser);
+    localStorage.setItem("user", JSON.stringify(currentUser));
 }, [currentUser])
 
   return (
@@ -111,8 +112,7 @@ function Login2() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-            />
-            <p style={{ color: "red" }}>{errorMessage}</p>
+            />{ errorMessage ? <Alert variant="outlined" severity="error" style={{marginBottom:"10px", fontSize:"20px", color:"#fc0303"}}>{errorMessage}</Alert>:""}
 
             <button
               type="submit"
@@ -173,7 +173,8 @@ function Login2() {
               placeholder="Password"
             />
             <Link to="/reset">Forgot Password</Link>
-            <p style={{ color: "red" }}>{errorMessage}</p>
+            {/* <p style={{ color: "red" }}>{errorMessage}</p> */}
+           { errorMessage ? <Alert variant="outlined" severity="error" style={{marginBottom:"10px", fontSize:"20px", color:"#fc0303"}}>{errorMessage}</Alert>:""}
             <button
               type="submit"
               style={{ backgroundColor: "#112d32", width: "10rem" }}

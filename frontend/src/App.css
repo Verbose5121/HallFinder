@@ -75,7 +75,7 @@ body{
   width: 30%;
   height: 50%;
   margin-left: 20px;
-  margin-top: 20px;
+  margin-top: 550px;
 }
 
 .list li {
@@ -117,7 +117,7 @@ body{
   justify-content: flex-start; */
   /* margin-left: 10px; */
   position: absolute;
-  top: 20px;
+  top: 550px;
   bottom: 0;
   width: 60%;
   height: 50%;

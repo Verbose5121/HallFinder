@@ -1,0 +1,40 @@
+
+.image {
+	height: 500px;
+	width: 100%;
+	margin: auto;
+	position: relative;
+    left: 0;
+}
+.one {
+    /* background-color:#202020; */
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    z-index: 1;
+    position: absolute;
+
+}
+.two {
+    animation-name: fadeIn;
+    animation-duration: 15s;
+    animation-fill-mode: forwards;
+    z-index: 1;
+    position:absolute;
+    
+
+}
+.three {
+    animation-name: fadeIn;
+    animation-duration: 25s;
+    animation-fill-mode: forwards;
+    z-index: 1;
+    position: absolute;
+
+}
+
+@keyframes fadeIn { 
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}

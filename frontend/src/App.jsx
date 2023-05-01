@@ -15,6 +15,7 @@ import { AuthContext } from "./components/auth";
 import LoginIcon from './components/LoginIcons';
 import LogoutIcon from './components/LogoutIcons';
 import UserProfile from './user/UserProfile';
+import Slideshow from './slideshow/Slideshow';
 
 
 const style = {

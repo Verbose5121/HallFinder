@@ -14,6 +14,7 @@ import { fontSize } from "@mui/system";
 import axios, { isCancel, AxiosError } from "axios";
 import { AuthContext } from "./components/auth";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import Slideshow from "./slideshow/Slideshow";
 
 
 mapboxgl.accessToken = import.meta.env.VITE_PUBLIC_KEY;
@@ -181,6 +182,8 @@ const Map = () => {
 
   return (
     <div className="data" id="data">
+            <Slideshow />
+
       <div className="list">
         <ul id="listData" key={Math.random()}>
           {filterData.map((b, index) => {

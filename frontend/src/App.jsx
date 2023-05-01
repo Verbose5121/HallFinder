@@ -2,11 +2,10 @@ import React, { useRef, useEffect, useState, useContext } from 'react';
 import Map from './map';
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./Login";
+import Login2 from "./Login2";
 import Reset from "./Reset";
 import HallPage from "./HallPage";
 import EventPage from "./EventPage";
-import UserProfile from "./UserProfile";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { AuthProvider } from './components/auth';
 import HomeIcon from '@mui/icons-material/Home';
@@ -79,7 +78,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Map />} />
-          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/login" element={<Login2 />} />
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/viewhall" element={<HallPage />} />
           

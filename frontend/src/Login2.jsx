@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, redirect, useNavigate } from "react-router-dom";
 import { auth, signInWithGoogle } from "../../backend/Firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import "./style2.css";
+import "./style.css";
 import Swal from "sweetalert2";
 import { AuthContext } from "./components/auth";
 import Alert from '@mui/material/Alert';

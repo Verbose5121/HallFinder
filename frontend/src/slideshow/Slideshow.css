@@ -1,40 +1,56 @@
-
 .image {
-	height: 500px;
-	width: 100%;
-	margin: auto;
-	position: relative;
-    left: 0;
+  height: 500px;
+  width: 100%;
+  margin: auto;
+  /* position: relative; */
+  left: 0;
 }
-.one {
-    /* background-color:#202020; */
-    animation-name: fadeIn;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    z-index: 1;
-    position: absolute;
 
+.one,
+.two,
+.three {
+  position: absolute;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -18;
+  opacity: 0;
+  animation-name: fade;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+}
+
+.one {
+  animation-delay: 0s;
 }
 .two {
-    animation-name: fadeIn;
-    animation-duration: 15s;
-    animation-fill-mode: forwards;
-    z-index: 1;
-    position:absolute;
-    
-
+  animation-delay: 4s;
 }
 .three {
-    animation-name: fadeIn;
-    animation-duration: 25s;
-    animation-fill-mode: forwards;
-    z-index: 1;
-    position: absolute;
-
+  animation-delay: 8s;
 }
 
-@keyframes fadeIn { 
-    0% { opacity: 0; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+@keyframes fade {
+  /* By offsetting the fade out and animating z-index, we can prevent the background from showing up at all*/
+  00.00% {
+    opacity: 0;
+    z-index: -10;
+  }
+  06.25% {
+    opacity: 1;
+    z-index: -10;
+  }
+  31.25% {
+    opacity: 1;
+    z-index: -12;
+  }
+  37.50% {
+    opacity: 0;
+    z-index: -14;
+  }
+  100.0% {
+    opacity: 0;
+    z-index: -16;
+  }
 }

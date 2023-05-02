@@ -6,7 +6,7 @@ import { storage } from "../../../backend/Firebase/firebase";
 import { getDownloadURL, listAll, ref, uploadBytesResumable } from "firebase/storage";
 
 const UserProfile = () => {
-  const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const { currentUser, setCurrentUser, image, setImage } = useContext(AuthContext);
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState(null);
   let currentUserData = [];
@@ -26,6 +26,7 @@ const UserProfile = () => {
     if (localStorage.getItem("user") != "undefined" || null) {
       currentUserData = JSON.parse(localStorage.getItem("user"));
       setCurrentUser(currentUserData);
+      setImage(localStorage.getItem("imageUrl"));
       document.getElementById("profilePic").src = localStorage.getItem("imageUrl");
       document.getElementById("inputUsername").value = currentUserData.displayName;
       document.getElementById("inputEmailAddress").value = currentUserData.email;
@@ -40,6 +41,7 @@ const UserProfile = () => {
         res.items.forEach((item)=>{
 getDownloadURL(item).then((url)=>{
     setImageList(url);
+    setImage(url);
     localStorage.setItem("imageUrl", url);
     document.getElementById("profilePic").src = url;
 })

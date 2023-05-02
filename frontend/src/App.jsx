@@ -25,7 +25,7 @@ const style = {
 };
 
 function App() {
-  const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const { currentUser, setCurrentUser, image, setImage } = useContext(AuthContext);
   const [imageList, setImageList] = useState(null);
 
   useEffect(()=>{
@@ -78,7 +78,7 @@ function App() {
           </li>
         </ul>
       </nav>
-     {!currentUser ?<LoginIcon />:<LogoutIcon currentUser = {currentUser} />}
+     {!currentUser ?<LoginIcon />:<LogoutIcon currentUser = {currentUser} image={image} />}
     </div>
     <div className="app">
       <Router>

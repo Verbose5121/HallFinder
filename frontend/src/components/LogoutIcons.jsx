@@ -15,7 +15,7 @@ import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 
-const LogoutIcons = ({ currentUser }) => {
+const LogoutIcons = ({ currentUser, image }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -46,7 +46,7 @@ const LogoutIcons = ({ currentUser }) => {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32, bgcolor: "#d05df0" }}>
+            <Avatar src={image} sx={{ width: 32, height: 32, bgcolor: "#d05df0" }}>
               {currentUser != "undefined" ? currentUser.displayName[0] : ""}
             </Avatar>
           </IconButton>
@@ -88,7 +88,7 @@ const LogoutIcons = ({ currentUser }) => {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <ListItemIcon
-          style={{ color: "black", marginLeft: "10px", marginBottom: "20px" }}
+          style={{ color: "#112d32", marginLeft: "10px", marginBottom: "20px", fontFamily:"Charcoal, sans-serif", fontWeight:"normal"}}
         >
           Hi!{" "}
           {currentUser != "undefined" || null ? currentUser.displayName : ""}
@@ -100,7 +100,7 @@ const LogoutIcons = ({ currentUser }) => {
             window.location.href = "/profile";
           }}
         >
-          <Avatar /> Profile
+          <Avatar src={image} /> Profile
         </MenuItem>
         <Divider />
 

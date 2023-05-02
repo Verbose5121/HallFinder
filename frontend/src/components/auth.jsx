@@ -13,10 +13,11 @@ export const AuthProvider = ({ children }) => {
       const currentUserData = JSON.parse(localStorage.getItem("user"));
       // console.log("abc"+currentUserData.uid);
       setCurrentUser(currentUserData);
+      setImage(localStorage.getItem("imageUrl"));
     }
   }, []);
   return (
-    <AuthContext.Provider value={{ currentUser, setCurrentUser }}>
+    <AuthContext.Provider value={{ currentUser, setCurrentUser, image, setImage }}>
       {children}
     </AuthContext.Provider>
   );

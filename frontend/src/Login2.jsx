@@ -16,13 +16,15 @@ function Login2() {
   const navigate = useNavigate();
   const container = document.getElementById("container");
   const { currentUser, setCurrentUser } = useContext(AuthContext);
+  
+  
+  
+  
   //Registration
   // if (currentUser) {
   //   return <Redirect to="/" />;
   // }
-
-  
-  const Register = async (e) => {
+const Register = async (e) => {
     e.preventDefault();
     if (!name) alert("Please enter name");
     const res = await fetch("/api/user/reg", {

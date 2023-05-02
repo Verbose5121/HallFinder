@@ -46,22 +46,21 @@ getDownloadURL(item).then((url)=>{
   }, []);
 
   return (
-    <div class="container-xl px-4 mt-4">
-      {/* <hr class="mt-0 mb-4"> */}
-      <div class="row">
-        <div class="col-xl-4">
+    <div className="container-xl px-4 mt-4">
+      <div className="row">
+        <div className="col-xl-4">
           {/* <!-- Profile picture card--> */}
-          <div class="cardProfile mb-4 mb-xl-0">
-            <div class="card-header">Profile Picture</div>
-            <div class="card-body text-center">
+          <div className="cardProfile mb-4 mb-xl-0">
+            <div className="card-header">Profile Picture</div>
+            <div className="card-body text-center">
               {/* <!-- Profile picture image--> */}
               <img id="profilePic"
-                class="img-account-profile rounded-circle mb-2"
+                className="img-account-profile rounded-circle mb-2"
                 src="http://bootdey.com/img/Content/avatar/avatar1.png"
                 alt=""
               />
               {/* <!-- Profile picture help block--> */}
-              <div class="small font-italic text-muted mb-4">
+              <div className="small font-italic text-muted mb-4">
                 JPG or PNG no larger than 5 MB
               </div>
               {/* <!-- Profile picture upload button--> */}
@@ -85,130 +84,130 @@ getDownloadURL(item).then((url)=>{
             </div>
           </div>
         </div>
-        <div class="col-xl-8">
+        <div className="col-xl-8">
           {/* <!-- Account details card--> */}
-          <div class="cardProfile1 mb-4">
-            <div class="card-header">Account Details</div>
-            <div class="card-body">
-              <form class="profileForm" style={{ backgroundColor: "white" }}>
+          <div className="cardProfile1 mb-4">
+            <div className="card-header">Account Details</div>
+            <div className="card-body">
+              <form className="profileForm" style={{ backgroundColor: "white" }}>
                 {/* <!-- Form Group (username)--> */}
-                <div class="mb-3">
-                  <label class="small mb-1" for="inputUsername">
+                <div className="mb-3">
+                  <label className="small mb-1" htmlFor="inputUsername">
                     Username (how your name will appear to other users on the
                     site)
                   </label>
                   <input
-                    class="form-control"
+                    className="form-control"
                     id="inputUsername"
                     type="text"
                     placeholder="Enter your username"
-                    value="username"
+                    defaultValue="username"
                   />
                 </div>
                 {/* <!-- Form Row--> */}
-                <div class="row gx-3 mb-3">
+                <div className="row gx-3 mb-3">
                   {/* <!-- Form Group (first name)--> */}
-                  <div class="col-md-6">
-                    <label class="small mb-1" for="inputFirstName">
+                  <div className="col-md-6">
+                    <label className="small mb-1" htmlFor="inputFirstName">
                       First name
                     </label>
                     <input
-                      class="form-control"
+                      className="form-control"
                       id="inputFirstName"
                       type="text"
                       placeholder="Enter your first name"
-                      value="Valerie"
+                      defaultValue="Valerie"
                     />
                   </div>
                   {/* <!-- Form Group (last name)--> */}
-                  <div class="col-md-6">
-                    <label class="small mb-1" for="inputLastName">
+                  <div className="col-md-6">
+                    <label className="small mb-1" htmlFor="inputLastName">
                       Last name
                     </label>
                     <input
-                      class="form-control"
+                      className="form-control"
                       id="inputLastName"
                       type="text"
                       placeholder="Enter your last name"
-                      value="Luna"
+                      defaultValue="Luna"
                     />
                   </div>
                 </div>
                 {/* <!-- Form Row        --> */}
-                <div class="row gx-3 mb-3">
+                <div className="row gx-3 mb-3">
                   {/* <!-- Form Group (organization name)--> */}
-                  <div class="col-md-6">
-                    <label class="small mb-1" for="inputOrgName">
+                  <div className="col-md-6">
+                    <label className="small mb-1" htmlFor="inputOrgName">
                       Organization name
                     </label>
                     <input
-                      class="form-control"
+                      className="form-control"
                       id="inputOrgName"
                       type="text"
                       placeholder="Enter your organization name"
-                      value="Start Bootstrap"
+                      defaultValue="Start Bootstrap"
                     />
                   </div>
                   {/* <!-- Form Group (location)--> */}
-                  <div class="col-md-6">
-                    <label class="small mb-1" for="inputLocation">
+                  <div className="col-md-6">
+                    <label className="small mb-1" htmlFor="inputLocation">
                       Location
                     </label>
                     <input
-                      class="form-control"
+                      className="form-control"
                       id="inputLocation"
                       type="text"
                       placeholder="Enter your location"
-                      value="San Francisco, CA"
+                      defaultValue="San Francisco, CA"
                     />
                   </div>
                 </div>
                 {/* <!-- Form Group (email address)--> */}
-                <div class="mb-3">
-                  <label class="small mb-1" for="inputEmailAddress">
+                <div className="mb-3">
+                  <label className="small mb-1" htmlFor="inputEmailAddress">
                     Email address
                   </label>
                   <input
-                    class="form-control"
+                    className="form-control"
                     id="inputEmailAddress"
                     type="email"
                     placeholder="Enter your email address"
-                    value="name@example.com"
+                    defaultValue="name@example.com"
                   />
                 </div>
                 {/* <!-- Form Row--> */}
-                <div class="row gx-3 mb-3">
+                <div className="row gx-3 mb-3">
                   {/* <!-- Form Group (phone number)--> */}
-                  <div class="col-md-6">
-                    <label class="small mb-1" for="inputPhone">
+                  <div className="col-md-6">
+                    <label className="small mb-1" htmlFor="inputPhone">
                       Phone number
                     </label>
                     <input
-                      class="form-control"
+                      className="form-control"
                       id="inputPhone"
                       type="tel"
                       placeholder="Enter your phone number"
-                      value="555-123-4567"
+                      defaultValue="555-123-4567"
                     />
                   </div>
                   {/* <!-- Form Group (birthday)--> */}
-                  <div class="col-md-6">
-                    <label class="small mb-1" for="inputBirthday">
+                  <div className="col-md-6">
+                    <label className="small mb-1" htmlFor="inputBirthday">
                       Birthday
                     </label>
                     <input
-                      class="form-control"
+                      className="form-control"
                       id="inputBirthday"
                       type="text"
                       name="birthday"
                       placeholder="Enter your birthday"
-                      value="06/10/1988"
+                      defaultValue="06/10/1988"
                     />
                   </div>
                 </div>
                 {/* <!-- Save changes button--> */}
                 <button
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   type="button"
                   style={{ marginBottom: "30px", backgroundColor: "#112d32" }}
                 >

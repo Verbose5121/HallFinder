@@ -99,9 +99,11 @@
   text-shadow: 0;
   width: 33px;
   height: 33px;
-  border-bottom: 4px solid #112d32;
-  border-right: 4px solid #112d32;
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
   z-index: 9;
+  
+  animation-timing-function: linear;
 
   -webkit-transform: translate(-50%, 0%) rotate(45deg);
   -moz-transform: translate(-50%, 0%) rotate(45deg);

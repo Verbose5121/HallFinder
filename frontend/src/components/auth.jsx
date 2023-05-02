@@ -7,7 +7,13 @@ export const AuthContext = createContext("Default Context");
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(undefined);
 
-
+  useEffect(() => {
+    if (localStorage.getItem("user") != "undefined" || null) {
+      const currentUserData = JSON.parse(localStorage.getItem("user"));
+      // console.log("abc"+currentUserData.uid);
+      setCurrentUser(currentUserData);
+    }
+  }, []);
   return (
     <AuthContext.Provider value={{ currentUser, setCurrentUser }}>
       {children}

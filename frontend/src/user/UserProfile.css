@@ -26,10 +26,14 @@
 }
 .cardProfile {
   box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
-  height: auto;
-
+  height: 400px;
 }
-.cardProfile .card-header {
+.cardProfile1 {
+  box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+  height: 600px;
+}
+
+.cardProfile .card-header .cardProfile1 {
   font-weight: 500;
 }
 .card-header:first-child {
@@ -89,4 +93,9 @@
 }
 .profileForm{
   margin-bottom: 20px;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  cursor: pointer;
 }

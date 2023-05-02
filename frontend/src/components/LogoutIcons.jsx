@@ -46,7 +46,7 @@ const LogoutIcons = ({ currentUser }) => {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32, bgcolor: "#d05df0" }}>
+            <Avatar sx={{ width: 32, height: 32, bgcolor: "#d05df0"}}>
               {currentUser != "undefined" ? currentUser.displayName[0] : ""}
             </Avatar>
           </IconButton>

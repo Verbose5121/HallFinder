@@ -20,6 +20,7 @@ import {
   addDoc,
 } from "firebase/firestore";
 
+import { getStorage, ref } from "firebase/storage";
 
 const apiKey = "AIzaSyDYSiHH3HIjdIebo7HE9wGeAzQpiOF7EwM";
 const authDomain = "community-resources-3816b.firebaseapp.com";
@@ -40,6 +41,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
+const storageRef = ref(storage, 'images');
 
 //const auth = firebase.auth();
 const auth = getAuth(app);
@@ -110,4 +113,5 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
+  storage,
 };

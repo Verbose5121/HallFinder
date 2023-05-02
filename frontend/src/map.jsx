@@ -10,10 +10,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import * as turf from "@turf/turf";
-import { fontSize } from "@mui/system";
-import axios, { isCancel, AxiosError } from "axios";
 import { AuthContext } from "./components/auth";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Slideshow from "./slideshow/Slideshow";
 
 

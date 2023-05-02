@@ -26,13 +26,18 @@ const style = {
 
 function App() {
   const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const [imageList, setImageList] = useState(null);
 
   useEffect(()=>{
     if(localStorage.getItem("user")!="undefined" && null){
       const a = JSON.parse(localStorage.getItem("user"));
-      console.log(a.uid);
       setCurrentUser(a);
       }
+      if(localStorage.getItem("imageUrl")!= null){
+        const a = localStorage.getItem("user");
+        setImageList(a);
+        }
+
   },[]);
  
 

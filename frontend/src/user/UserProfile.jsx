@@ -26,6 +26,9 @@ const UserProfile = () => {
     if (localStorage.getItem("user") != "undefined" || null) {
       currentUserData = JSON.parse(localStorage.getItem("user"));
       setCurrentUser(currentUserData);
+      document.getElementById("profilePic").src = localStorage.getItem("imageUrl");
+      document.getElementById("inputUsername").value = currentUserData.displayName;
+      document.getElementById("inputEmailAddress").value = currentUserData.email;
     }
   }, []);
   useEffect(() => {

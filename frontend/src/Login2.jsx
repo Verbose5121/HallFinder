@@ -6,6 +6,7 @@ import "./style.css";
 import Swal from "sweetalert2";
 import { AuthContext } from "./components/auth";
 import Alert from '@mui/material/Alert';
+import getProfilePic from "./user/getProfilePic";
 
 function Login2() {
   const [email, setEmail] = useState("");
@@ -72,6 +73,7 @@ const Register = async (e) => {
       const response = await res.json();
       console.log("response data is", response);
       setCurrentUser(response);
+      getProfilePic(response);
       Swal.fire({
         title: "Login Successful!",
         text: response.email,
@@ -85,7 +87,9 @@ const Register = async (e) => {
 
   useEffect(()=>{
     localStorage.setItem("user", JSON.stringify(currentUser));
+    
 }, [currentUser])
+
 
   return (
     <>

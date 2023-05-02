@@ -6,6 +6,7 @@ export const AuthContext = createContext("Default Context");
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [image, setImage] = useState(undefined);
 
   useEffect(() => {
     if (localStorage.getItem("user") != "undefined" || null) {

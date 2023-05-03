@@ -181,8 +181,8 @@ export default function HallTables() {
         </TableBody>
       </Table>
 
-
-      <Table sx={{ maxWidth: 0.5}} aria-label="Programs">
+      {/* Recreation Amenities Table */}
+      <Table sx={{ maxWidth: 0.5}} aria-label="Recreation Amenities">
         <TableHead>
           <TableRow> 
             <TableCell>Programs</TableCell>
@@ -288,8 +288,8 @@ export default function HallTables() {
           </TableRow>
         </TableBody>
       </Table>
-
-      <Table sx={{ maxWidth: 0.5}} aria-label=""></Table>
+      {/* Community Facilities Table */}
+      <Table sx={{ maxWidth: 0.5}} aria-label="Community Facilities">
         <TableHead>
           <TableRow>
             <TableCell> </TableCell>
@@ -302,7 +302,18 @@ export default function HallTables() {
         </TableBody>
       </Table>
       
-
+      {/* <Table sx={{ maxWidth: 0.5}} aria-label=""></Table>
+        <TableHead>
+          <TableRow>
+            <TableCell> </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody> 
+          <TableRow>
+            <TableCell> </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table> */}
             
 
     </TableContainer>

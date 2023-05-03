@@ -30,6 +30,10 @@ const programsSeniorsProgram = communityData[5].programs.seniorsProgram;
 const programsSports = communityData[5].programs.sports;
 const programsYouthJustice = communityData[5].programs.youthJustice;
 
+// const facilitiesArray = [
+//   communityData[5].
+//  ] 
+
 const rows = [
   createData(communityWebsite, communityPhone, communityAddress, communityEmail, communityFax),
 
@@ -111,7 +115,7 @@ export default function HallTables() {
             <TableCell component="th" scope="row">
               Bingo:
             </TableCell>
-            <TableCell align="left">{programsBingo}</TableCell>
+            <TableCell align="right">{programsBingo}</TableCell>
           </TableRow>
 
           <TableRow
@@ -176,6 +180,130 @@ export default function HallTables() {
           
         </TableBody>
       </Table>
+
+
+      <Table sx={{ maxWidth: 0.5}} aria-label="Programs">
+        <TableHead>
+          <TableRow> 
+            <TableCell>Programs</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Program Type</TableCell>
+            <TableCell align="right">Available:</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {/* {rows.map((programRows) => ( */}
+            <TableRow
+              key={programRows.artClasses}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                Art Classes:
+              </TableCell>
+              <TableCell align="right">{programsArt}</TableCell>
+            </TableRow>
+
+            <TableRow
+            key={programRows.bingo}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="row">
+              Bingo:
+            </TableCell>
+            <TableCell align="right">{programsBingo}</TableCell>
+          </TableRow>
+
+          <TableRow
+            key={programRows.childCare}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="row">
+              Childcare:
+            </TableCell>
+            <TableCell align="right">{programsChildCare}</TableCell>
+          </TableRow>
+
+          <TableRow
+            key={programRows.dance}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="row">
+              Dance:
+            </TableCell>
+            <TableCell align="right">{programsDance}</TableCell>
+          </TableRow>
+
+          <TableRow
+            key={programRows.fitness}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="row">
+              Fitness:
+            </TableCell>
+            <TableCell align="right">{programsFitness}</TableCell>
+          </TableRow>
+
+          <TableRow
+            key={programRows.seniorsProgram}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="row">
+              Seniors Program:
+            </TableCell>
+            <TableCell align="right">{programsSeniorsProgram}</TableCell>
+          </TableRow>
+
+          <TableRow
+            key={programRows.sports}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="row">
+              Sports:
+            </TableCell>
+            <TableCell align="right">{programsSports}</TableCell>
+          </TableRow>
+
+          <TableRow
+            key={programRows.youthJustice}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="row">
+              Youth Justice:
+            </TableCell>
+            <TableCell align="right">{programsYouthJustice}</TableCell>
+          </TableRow>
+          
+        </TableBody>
+
+      <Table sx={{ maxWidth: 0.5}} aria-label="Programs"></Table>
+        <TableHead>
+          <TableRow>
+            <TableCell> </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody> 
+          <TableRow>
+            <TableCell> </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+
+      <Table sx={{ maxWidth: 0.5}} aria-label=""></Table>
+        <TableHead>
+          <TableRow>
+            <TableCell> </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody> 
+          <TableRow>
+            <TableCell> </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+      
+
+            
 
     </TableContainer>
     )}

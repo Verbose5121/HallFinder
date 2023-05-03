@@ -155,7 +155,7 @@ async function uploadPhoto(file, currentUser) {
   //setLoading(true);
   // const snapshot = await uploadBytes(fileRef, file);
 
-  const photoURL = await getDownloadURL(photoRef);
+  // const photoURL = await getDownloadURL(photoRef);
 
   //updateProfile(currentUser, {photoURL})
 

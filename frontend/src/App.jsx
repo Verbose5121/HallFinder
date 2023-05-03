@@ -8,7 +8,7 @@ import HallPage from "./HallPage";
 import EventPage from "./EventPage";
 import UserProfile from "./UserProfile";
 import InfiniteScroll from "react-infinite-scroll-component";
-
+import TestPage from './TestPage'
 const style = {
   border: "2px solid purple",
   margin: 12,
@@ -38,6 +38,7 @@ function App() {
           <Route exact path="/viewhall" element={<HallPage />} />
           <Route exact path="/userprofile" element={<UserProfile />} />
           <Route exact path="/viewevent" element={<EventPage />} />
+          <Route exact path="/testpage" element={<TestPage />} />
 
         </Routes>
       </Router>

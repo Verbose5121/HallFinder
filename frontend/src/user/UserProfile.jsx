@@ -112,7 +112,7 @@ const UserProfile = () => {
           </div>
         </div>
         <div className="col-xl-8">
-          {/* <!-- Account details card--> */}
+         {/*  !<!-- Account details card--> */}
           <div className="cardProfile1 mb-4">
             <div className="card-header">Account Details</div>
             <div className="card-body1">
@@ -123,15 +123,14 @@ const UserProfile = () => {
                 {/* <!-- Form Group (username)--> */}
                 <div className="mb-3">
                   <label className="small mb-1" htmlFor="inputUsername">
-                    Username (how your name will appear to other users on the
-                    site)
+                    Username
                   </label>
                   <input
                     className="form-control"
                     id="inputUsername"
                     type="text"
                     placeholder="Enter your username"
-                    defaultValue="username"
+                    
                   />
                 </div>
                 {/* <!-- Form Row--> */}
@@ -142,11 +141,10 @@ const UserProfile = () => {
                       First name
                     </label>
                     <input
-                      className="form-control"
+                      className="form-control1"
                       id="inputFirstName"
                       type="text"
                       placeholder="Enter your first name"
-                      defaultValue="Valerie"
                     />
                   </div>
                   {/* <!-- Form Group (last name)--> */}
@@ -155,45 +153,14 @@ const UserProfile = () => {
                       Last name
                     </label>
                     <input
-                      className="form-control"
+                      className="form-control1"
                       id="inputLastName"
                       type="text"
                       placeholder="Enter your last name"
-                      defaultValue="Luna"
                     />
                   </div>
                 </div>
-                {/* <!-- Form Row        --> */}
-                <div className="row gx-3 mb-3">
-                  {/* <!-- Form Group (organization name)--> */}
-                  <div className="col-md-6">
-                    <label className="small mb-1" htmlFor="inputOrgName">
-                      Organization name
-                    </label>
-                    <input
-                      className="form-control"
-                      id="inputOrgName"
-                      type="text"
-                      placeholder="Enter your organization name"
-                      defaultValue="Start Bootstrap"
-                    />
-                  </div>
-                  {/* <!-- Form Group (location)--> */}
-                  <div className="col-md-6">
-                    <label className="small mb-1" htmlFor="inputLocation">
-                      Location
-                    </label>
-                    <input
-                      className="form-control"
-                      id="inputLocation"
-                      type="text"
-                      placeholder="Enter your location"
-                      defaultValue="San Francisco, CA"
-                    />
-                  </div>
-                </div>
-                {/* <!-- Form Group (email address)--> */}
-                <div className="mb-3">
+          <div className="mb-3">
                   <label className="small mb-1" htmlFor="inputEmailAddress">
                     Email address
                   </label>
@@ -202,7 +169,6 @@ const UserProfile = () => {
                     id="inputEmailAddress"
                     type="email"
                     placeholder="Enter your email address"
-                    defaultValue="name@example.com"
                   />
                 </div>
                 {/* <!-- Form Row--> */}
@@ -213,11 +179,10 @@ const UserProfile = () => {
                       Phone number
                     </label>
                     <input
-                      className="form-control"
+                      className="form-control1"
                       id="inputPhone"
                       type="tel"
                       placeholder="Enter your phone number"
-                      defaultValue="555-123-4567"
                     />
                   </div>
                   {/* <!-- Form Group (birthday)--> */}
@@ -226,12 +191,11 @@ const UserProfile = () => {
                       Birthday
                     </label>
                     <input
-                      className="form-control"
+                      className="form-control1"
                       id="inputBirthday"
                       type="text"
                       name="birthday"
                       placeholder="Enter your birthday"
-                      defaultValue="06/10/1988"
                     />
                   </div>
                 </div>

@@ -50,7 +50,7 @@
   text-align: center;
 }
 .form-control,
-.dataTable-input {
+.dataTable-input, .form-control1 {
   display: block;
   width: 100%;
   padding: 0.875rem 1.125rem;
@@ -66,6 +66,15 @@
   appearance: none;
   border-radius: 0.35rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.form-control{
+  width: 760px;
+  margin-bottom: 30px;
+
+}
+.form-control1{
+  width: 350px;
+  margin-bottom: 30px;
 }
 
 .nav-borders .nav-link.active {
@@ -96,6 +105,8 @@
 }
 .card-body1{
   margin-top: 20px;
+  display: flex;
+  
 }
 .btn-primary{
 
@@ -104,6 +115,8 @@
 }
 .profileForm{
   margin-bottom: 20px;
+  width: 100%;
+  
 }
 .custom-file-upload {
   border: 1px solid #ccc;

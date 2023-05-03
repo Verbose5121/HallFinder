@@ -1,0 +1,79 @@
+/* .carousel {
+    display: flex;
+    width: 100%; 
+
+} */
+
+.hallpage-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* .hall-page-card {
+    	background-color: #ffffff;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 850px;
+	max-width: 100%;
+	min-height: 480px;
+	height: 650px;
+	margin: 7% 25%;
+} */
+
+.hall-page-stuff {
+    display: inline-flex; /* or inline-flex */
+    flex-wrap: wrap;
+    max-width: 100%;
+    width: 100%;
+    position: absolute;
+    right: 10px;
+    top: 150px;
+    justify-content: space-around;
+}
+
+.event-calendar-large-container {
+    width: 45%; 
+}
+
+.bookForm-form {
+    display: flex;
+    flex-direction: column; 
+    background-color: #4f4a41;
+}
+
+.bookingform-buttons {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #4f4a41;
+}
+
+.bookingform-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+    
+}
+
+::-webkit-textfield-decoration-container
+input {
+	background-color: #fffffff3;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+    z-index: 50;
+	/* font-weight: bolder; */
+}

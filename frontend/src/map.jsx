@@ -29,7 +29,7 @@ const Map = () => {
   const [filterData, setFilterData] = useState(data);
   const [fly, setFly] = useState([]);
   let currentUserData = [];
-  const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const { currentUser, setCurrentUser, image, setImage } = useContext(AuthContext);
   const geoCoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl,
@@ -47,6 +47,7 @@ const Map = () => {
       currentUserData = JSON.parse(localStorage.getItem("user"));
      // console.log("abc"+currentUserData.uid);
       setCurrentUser(currentUserData);
+      setImage(localStorage.getItem("imageUrl"));
     }
   },[]);
   

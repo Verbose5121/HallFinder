@@ -3,6 +3,7 @@
   flex-direction: column;
   flex-wrap: nowrap;
   margin-top: 100px;
+  margin-bottom: 100px;
   /* border: 2px solid black; */
 }
 .row {
@@ -19,14 +20,15 @@
   background-color: transparent;
 }
 .img-account-profile {
-  height: 10rem;
+  height: 15rem;
+  width: 220px;
 }
 .rounded-circle {
   border-radius: 50% !important;
 }
 .cardProfile {
   box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
-  height: 400px;
+  height: 500px;
 }
 .cardProfile1 {
   box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
@@ -84,8 +86,17 @@
 }
 .card-body {
   margin-top: 20px;
+  margin-left: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  height: 400px;
 }
-
+.card-body1{
+  margin-top: 20px;
+}
 .btn-primary{
 
     margin-top: 30px;
@@ -98,4 +109,9 @@
   border: 1px solid #ccc;
   padding: 6px 12px;
   cursor: pointer;
+}
+
+.inputFile span{
+  
+  color: #112d32;
 }

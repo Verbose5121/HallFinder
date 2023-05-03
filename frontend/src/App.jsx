@@ -16,7 +16,7 @@ import LoginIcon from './components/LoginIcons';
 import LogoutIcon from './components/LogoutIcons';
 import UserProfile from './user/UserProfile';
 import Slideshow from './slideshow/Slideshow';
-
+import Footer from './footer/footer';
 
 const style = {
   border: "2px solid purple",
@@ -34,7 +34,7 @@ function App() {
       setCurrentUser(a);
       }
       if(localStorage.getItem("imageUrl")!= null){
-        const a = localStorage.getItem("user");
+        const a = localStorage.getItem("imageUrl");
         setImageList(a);
         }
 
@@ -94,6 +94,7 @@ function App() {
         </Routes>
       </Router>
           </div>
+          <Footer />
           </>
         );
       }

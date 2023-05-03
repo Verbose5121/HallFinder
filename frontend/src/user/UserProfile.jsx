@@ -3,22 +3,42 @@ import "./UserProfile.css";
 import { AuthContext } from "../components/auth";
 import Button from "@mui/material/Button";
 import { storage } from "../../../backend/Firebase/firebase";
-import { getDownloadURL, listAll, ref, uploadBytesResumable } from "firebase/storage";
+import {
+  getDownloadURL,
+  listAll,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
+import { MuiFileInput } from "mui-file-input";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
-  const { currentUser, setCurrentUser, image, setImage } = useContext(AuthContext);
+  const { currentUser, setCurrentUser, image, setImage } =
+    useContext(AuthContext);
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState(null);
   let currentUserData = [];
+  const navigate = useNavigate();
+  const handleChange = (newFile) => {
+    setImageUpload(newFile);
+  };
 
-  const uploadImage = async () => {
+  const uploadImage = async (e) => {
     if (uploadImage == null) return;
+    setTimeout(5000);
     const imageRef = ref(
       storage,
       `images/${currentUser.uid}/${currentUser.uid}`
     );
     await uploadBytesResumable(imageRef, imageUpload).then(() => {
-      alert("Image Uploaded");
+      Swal.fire({
+        title: "Your profile picture has been updated!",
+        icon: "success",
+        timer: 2000,
+      }).then(() => {
+        location.reload(); 
+      });
     });
   };
 
@@ -27,9 +47,12 @@ const UserProfile = () => {
       currentUserData = JSON.parse(localStorage.getItem("user"));
       setCurrentUser(currentUserData);
       setImage(localStorage.getItem("imageUrl"));
-      document.getElementById("profilePic").src = localStorage.getItem("imageUrl");
-      document.getElementById("inputUsername").value = currentUserData.displayName;
-      document.getElementById("inputEmailAddress").value = currentUserData.email;
+      document.getElementById("profilePic").src =
+        localStorage.getItem("imageUrl");
+      document.getElementById("inputUsername").value =
+        currentUserData.displayName;
+      document.getElementById("inputEmailAddress").value =
+        currentUserData.email;
     }
   }, []);
   useEffect(() => {
@@ -38,14 +61,14 @@ const UserProfile = () => {
       setCurrentUser(currentUserData);
       const imageListRef = ref(storage, `images/${currentUserData.uid}`);
       listAll(imageListRef).then((res) => {
-        res.items.forEach((item)=>{
-getDownloadURL(item).then((url)=>{
-    setImageList(url);
-    setImage(url);
-    localStorage.setItem("imageUrl", url);
-    document.getElementById("profilePic").src = url;
-})
-        })
+        res.items.forEach((item) => {
+          getDownloadURL(item).then((url) => {
+            setImageList(url);
+            setImage(url);
+            localStorage.setItem("imageUrl", url);
+            document.getElementById("profilePic").src = url;
+          });
+        });
       });
     }
   }, []);
@@ -59,7 +82,8 @@ getDownloadURL(item).then((url)=>{
             <div className="card-header">Profile Picture</div>
             <div className="card-body text-center">
               {/* <!-- Profile picture image--> */}
-              <img id="profilePic"
+              <img
+                id="profilePic"
                 className="img-account-profile rounded-circle mb-2"
                 src="http://bootdey.com/img/Content/avatar/avatar1.png"
                 alt=""
@@ -69,22 +93,20 @@ getDownloadURL(item).then((url)=>{
                 JPG or PNG no larger than 5 MB
               </div>
               {/* <!-- Profile picture upload button--> */}
+              <MuiFileInput
+                className="inputFile"
+                value={imageUpload}
+                inputRef={imageUpload}
+                onChange={handleChange}
+                style={{ color: "black" }}
+              />
               <Button
                 variant="contained"
                 component="label"
-                onChange={uploadImage}
+                onClick={uploadImage}
                 style={{ backgroundColor: "#112d32", marginTop: "35px" }}
               >
                 Upload
-                <input
-                  hidden
-                  accept="image/*"
-                  multiple
-                  type="file"
-                  onChange={(e) => {
-                    setImageUpload(e.target.files[0]);
-                  }}
-                />
               </Button>
             </div>
           </div>
@@ -93,8 +115,11 @@ getDownloadURL(item).then((url)=>{
           {/* <!-- Account details card--> */}
           <div className="cardProfile1 mb-4">
             <div className="card-header">Account Details</div>
-            <div className="card-body">
-              <form className="profileForm" style={{ backgroundColor: "white" }}>
+            <div className="card-body1">
+              <form
+                className="profileForm"
+                style={{ backgroundColor: "white" }}
+              >
                 {/* <!-- Form Group (username)--> */}
                 <div className="mb-3">
                   <label className="small mb-1" htmlFor="inputUsername">

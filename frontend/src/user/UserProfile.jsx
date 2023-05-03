@@ -12,16 +12,37 @@ import {
 import { MuiFileInput } from "mui-file-input";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import getUserInfo from "./getUserInfo";
+import updateUserInfo from "./updateUserInfo";
 
 const UserProfile = () => {
   const { currentUser, setCurrentUser, image, setImage } =
     useContext(AuthContext);
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState(null);
+
   let currentUserData = [];
   const navigate = useNavigate();
+
+  //! Image upload
   const handleChange = (newFile) => {
     setImageUpload(newFile);
+  };
+
+  //! Update user info
+
+  const update = async () => {
+    const uName = document.getElementById("inputUsername").value;
+    const fName = document.getElementById("inputFirstName").value;
+    const lName = document.getElementById("inputLastName").value;
+    const pNumber = document.getElementById("inputPhone").value;
+    const birthday = document.getElementById("inputBirthday").value;
+    updateUserInfo(currentUser.uid, uName, fName, lName, pNumber, birthday);
+    Swal.fire({
+      title: "The data has been updated!",
+      icon: "success",
+      timer: 3000,
+    })
   };
 
   const uploadImage = async (e) => {
@@ -37,7 +58,7 @@ const UserProfile = () => {
         icon: "success",
         timer: 2000,
       }).then(() => {
-        location.reload(); 
+        location.reload();
       });
     });
   };
@@ -49,10 +70,7 @@ const UserProfile = () => {
       setImage(localStorage.getItem("imageUrl"));
       document.getElementById("profilePic").src =
         localStorage.getItem("imageUrl");
-      document.getElementById("inputUsername").value =
-        currentUserData.displayName;
-      document.getElementById("inputEmailAddress").value =
-        currentUserData.email;
+      getUserInfo(currentUserData);
     }
   }, []);
   useEffect(() => {
@@ -112,7 +130,7 @@ const UserProfile = () => {
           </div>
         </div>
         <div className="col-xl-8">
-         {/*  !<!-- Account details card--> */}
+          {/*  !<!-- Account details card--> */}
           <div className="cardProfile1 mb-4">
             <div className="card-header">Account Details</div>
             <div className="card-body1">
@@ -145,6 +163,7 @@ const UserProfile = () => {
                       id="inputFirstName"
                       type="text"
                       placeholder="Enter your first name"
+                      
                     />
                   </div>
                   {/* <!-- Form Group (last name)--> */}
@@ -157,10 +176,11 @@ const UserProfile = () => {
                       id="inputLastName"
                       type="text"
                       placeholder="Enter your last name"
+                      
                     />
                   </div>
                 </div>
-          <div className="mb-3">
+                <div className="mb-3">
                   <label className="small mb-1" htmlFor="inputEmailAddress">
                     Email address
                   </label>
@@ -169,6 +189,8 @@ const UserProfile = () => {
                     id="inputEmailAddress"
                     type="email"
                     placeholder="Enter your email address"
+                    
+                    disabled
                   />
                 </div>
                 {/* <!-- Form Row--> */}
@@ -204,6 +226,7 @@ const UserProfile = () => {
                   className="btn btn-primary"
                   type="button"
                   style={{ marginBottom: "30px", backgroundColor: "#112d32" }}
+                  onClick={update}
                 >
                   Save changes
                 </button>

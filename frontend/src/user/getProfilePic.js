@@ -2,8 +2,6 @@ import { storage } from "../../../backend/Firebase/firebase";
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 
 export default function getProfilePic(res) {
-  console.log("Helooooo get profie");
-
   const imageListRef = ref(storage, `images/${res.uid}`);
   listAll(imageListRef).then((res) => {
     res.items.forEach((item) => {

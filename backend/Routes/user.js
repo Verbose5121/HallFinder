@@ -42,6 +42,7 @@ userRouter.post("/login", async (req, res) => {
 
 userRouter.post("/reg", async (req, res) => {
   const userData = req.body;
+  console.log(userData);
   try {
     const response = await createUserWithEmailAndPassword(
       auth,
@@ -79,22 +80,17 @@ userRouter.post("/reg", async (req, res) => {
 userRouter.post("/update", async (req, res) => {
   const userData = req.body;
   try {
-    const response = await createUserWithEmailAndPassword(
-      auth,
-      userData[1],
-      userData[2]
-    );
-    const user = response.user;
-    await updateProfile(user, { displayName: userData[0] });
-
-    const docRef = doc(db, "users", user.uid);
+    
+    const docRef = doc(db, "users", userData[0]);
     await setDoc(
       docRef,
       {
-        uid: user.uid,
-        name: user.displayName,
-        authProvider: "local",
-        email: userData[1],
+        uid: userData[0],
+        name: userData[1],
+        firstName: userData[2],
+        lastName: userData[3],
+        mobile: userData[4],
+        birthday: userData[5]
       },
       { merge: true }
     );
@@ -104,7 +100,7 @@ userRouter.post("/update", async (req, res) => {
     //   authProvider: "local",
     //   email: userData[1],
     // });
-    res.status(200).send(user);
+    res.status(200).send("Updated!");
   } catch (err) {
     console.error(err.message);
     res.status(403).send(err);

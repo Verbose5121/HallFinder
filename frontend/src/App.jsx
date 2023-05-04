@@ -17,6 +17,7 @@ import LogoutIcon from './components/LogoutIcons';
 import UserProfile from './user/UserProfile';
 import Slideshow from './slideshow/Slideshow';
 import Footer from './footer/footer';
+import BookingForm from './Hall/BookingForm';
 
 const style = {
   border: "2px solid purple",
@@ -86,7 +87,7 @@ function App() {
           <Route exact path="/" element={<Map />} />
           <Route exact path="/login" element={<Login2 />} />
           <Route exact path="/reset" element={<Reset />} />
-          <Route exact path="/viewhall" element={<HallPage />} />
+          <Route exact path="/viewhall" element={<BookingForm />} />
           
           <Route exact path="/viewevent" element={<EventPage />} />
           <Route exact path="/profile" element={<UserProfile />} />
@@ -94,7 +95,7 @@ function App() {
         </Routes>
       </Router>
           </div>
-          <Footer />
+          {/* <Footer /> */}
           </>
         );
       }

@@ -142,31 +142,31 @@ const Map = () => {
   
   function flyToStore(currentFeature) {
     console.log("Second Hook");
-    // map.flyTo({
-    //   center: currentFeature.geometry.coordinates,
-    //   zoom: 15,
-    // });
+    map.flyTo({
+      center: currentFeature.geometry.coordinates,
+      zoom: 15,
+    });
 
-    // let popup = new mapboxgl.Popup({ closeOnClick: false, closeButton: false }) // add popups
-    //       .setHTML(
-    //         `<h3>Address:</h3><h4>Name: ${currentFeature.properties.name}</h4>`
-    //       )
-    // let marker1 = new mapboxgl.Marker({
-    //   color: "brown",
-    //   scale: 2,
-    // })
-    //   .setLngLat(currentFeature.geometry.coordinates)
+    let popup = new mapboxgl.Popup({ closeOnClick: false, closeButton: false }) // add popups
+          .setHTML(
+            `<h3>Address:</h3><h4>Name: ${currentFeature.properties.name}</h4>`
+          )
+    let marker1 = new mapboxgl.Marker({
+      color: "brown",
+      scale: 2,
+    })
+      .setLngLat(currentFeature.geometry.coordinates)
 
-    //   .setPopup(popup);
-    //   if (popup.isOpen()) {
+      .setPopup(popup);
+      if (popup.isOpen()) {
 
-    //     popup.remove();
+        popup.remove();
 
-    // } else {
+    } else {
 
-    //     marker1.addTo(map).togglePopup();
+        marker1.addTo(map).togglePopup();
 
-    // }
+    }
 
     console.log(currentFeature.geometry.coordinates);
 

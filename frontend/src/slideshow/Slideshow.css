@@ -58,9 +58,9 @@
 /* TEXT ON SLIDESHOW */
 #text {
   position: absolute;
-  top: 320px;
-  left: 100;
-  border: 2px bold black;
+  top: 400px;
+  left: 150px;
+  border: 4px bold black;
   /* background: transparent; */
 }
 #hallText{
@@ -71,17 +71,18 @@
 }
 
 #textMain{
-  font-family: Impact, Charcoal, sans-serif;
+  /* font-family: Impact, Charcoal, sans-serif; */
+  font-family: pesta-roasting;
   font-weight: bold;
   text-align: center;
-  font-size: 70px;
+  font-size: 60px;
   color: rgb(255, 255, 255);
   text-shadow: rgb(0, 0, 0) 8px 8px 10px;
   font-variant: small-caps;
   letter-spacing: 0.4px;
-  word-spacing: 6px;
+  word-spacing: 2px;
   text-decoration: none;
-  -webkit-text-stroke: 3px #112d32;
+  -webkit-text-stroke: 1px #112d32;
 }
 
 /* ARROW */

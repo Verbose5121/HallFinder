@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login2 from "./Login2";
 import Reset from "./Reset";
 import HallPage from "./HallPage";
-import EventPage from "./EventPage";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { AuthProvider } from './components/auth';
 import HomeIcon from '@mui/icons-material/Home';
@@ -89,7 +88,6 @@ function App() {
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/viewhall" element={<BookingForm />} />
           
-          <Route exact path="/viewevent" element={<EventPage />} />
           <Route exact path="/profile" element={<UserProfile />} />
 
         </Routes>

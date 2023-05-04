@@ -2,14 +2,14 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../backend/Firebase/firebase";
 
 export default async function Book(
-    BUid, fName, lName, pNumber, email, hAddress, imageUpload
+  BUid, datePicker, fName, lName, pNumber, email, hAddress
 ) {
-  const res = await fetch("/api/user/update", {
+  const res = await fetch("/api/user/book", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify([uid, uName, fName, lName, pNumber, birthday]),
+    body: JSON.stringify([BUid, datePicker, fName, lName, pNumber, email, hAddress]),
   });
   if (!res.ok) {
     console.log("bad thing happened");

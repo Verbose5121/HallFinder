@@ -1,5 +1,4 @@
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../../backend/Firebase/firebase";
+
 
 export default async function updateUserInfo(
   uid,

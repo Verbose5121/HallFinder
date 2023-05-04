@@ -58,11 +58,6 @@ const programRows = [
 ];
 
 export default function HallTables() {
-  const useStyles = makeStyles({
-    root: {
-      color: "red"
-    }
-  });
   return (
     <>
     {/* Contact Details Table */}
@@ -74,8 +69,10 @@ export default function HallTables() {
         maxWidth: 1,
         top:150, 
         // justifyContent: 'space-around'
+        
         }} 
-        component={Paper}>
+        component='paper'
+        >
       
       <Table sx={{ minWidth: 250}} aria-label="Hall Details" size="small" >
         <TableHead>
@@ -96,7 +93,7 @@ export default function HallTables() {
           {rows.map((row) => (
             <TableRow
               key={row.website}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { boxShadow: 2 } }}
             >
               <TableCell component="th" scope="row">
                 {row.website}
@@ -110,174 +107,6 @@ export default function HallTables() {
         </TableBody>
       </Table>
       </TableContainer>
-
-      {/* Programs Table */}
-      <TableContainer classname='table-container' 
-      sx={{ 
-        flexWrap: 'wrap', 
-
-
-        maxWidth: 0.2,
-        mt: 3,
-        justifyContent: 'space-between'
-        }} 
-      >
-      <Table sx={{ display: 'inline', maxWidth: 0.5,}} aria-label="Programs">
-        <TableHead>
-          <TableRow > 
-            <TableCell colSpan={2} align="center">Programs</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Program Type</TableCell>
-            <TableCell align="center">Available:</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-            <TableRow
-            >
-              <TableCell center>
-                Art Classes:
-              </TableCell>
-              <TableCell align="center">{programsArt}</TableCell>
-            </TableRow>
-
-            <TableRow
-          >
-            <TableCell center>
-              Bingo:
-            </TableCell>
-            <TableCell align="center">{programsBingo}</TableCell>
-          </TableRow>
-
-          <TableRow
-          >
-            <TableCell center>
-              Childcare:
-            </TableCell>
-            <TableCell align="center">{programsChildCare}</TableCell>
-          </TableRow>
-
-          <TableRow
-          >
-            <TableCell center>
-              Dance:
-            </TableCell>
-            <TableCell align="center">{programsDance}</TableCell>
-          </TableRow>
-
-          <TableRow
-          >
-            <TableCell center>
-              Fitness:
-            </TableCell>
-            <TableCell align="center">{programsFitness}</TableCell>
-          </TableRow>
-
-          <TableRow
-          >
-            <TableCell center>
-              Seniors Program:
-            </TableCell>
-            <TableCell align="center">{programsSeniorsProgram}</TableCell>
-          </TableRow>
-
-          <TableRow
-          >
-            <TableCell>
-              Sports:
-            </TableCell>
-            <TableCell align="center">{programsSports}</TableCell>
-          </TableRow>
-
-          <TableRow
-          >
-            <TableCell center>
-              Youth Justice:
-            </TableCell>
-            <TableCell align="center">{programsYouthJustice}</TableCell>
-          </TableRow> 
-        </TableBody>
-      </Table>
-        </TableContainer>
-  
-      <TableContainer
-            sx={{ 
-              flexWrap: 'wrap', 
-      
-               
-              maxWidth: 0.2,
-              mt: 3,
-              justifyContent: 'space-between'
-              }} 
-      >  
-      {/* Recreation Amenities Table */}
-      <Table sx={{ display: 'inline', maxWidth: 0.5}} aria-label="Recreation Amenities">
-        <TableHead>
-          <TableRow> 
-            <TableCell colSpan={2} align="center">Recreation Amenities</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Amenity Type</TableCell>
-            <TableCell align="center">Available:</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-            <TableRow
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell center>
-                Hockey Rink:
-              </TableCell>
-              <TableCell align="center">{amenities.hockeyRink}</TableCell>
-            </TableRow>
-
-            <TableRow
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-          >
-            <TableCell center>
-              Skating Rink:
-            </TableCell>
-            <TableCell align="center">{amenities.skatingRink}</TableCell>
-          </TableRow>
-
-          <TableRow
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-          >
-            <TableCell center>
-              Sports Fields:
-            </TableCell>
-            <TableCell align="center">{amenities.sportsPlayfields}</TableCell>
-          </TableRow>
-
-          <TableRow
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-          >
-            <TableCell center>
-              Swimming Pool:
-            </TableCell>
-            <TableCell align="center">{amenities.swimmingPool}</TableCell>
-          </TableRow>
-
-          <TableRow
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-          >
-            <TableCell center>
-              Tennis Courts:
-            </TableCell>
-            <TableCell align="center">{amenities.tennisCourts}</TableCell>
-          </TableRow>
-
-          <TableRow
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-          >
-            <TableCell center>
-              Other:
-            </TableCell>
-            <TableCell align="center">{amenities.other}</TableCell>
-          </TableRow>          
-        </TableBody>
-      </Table>
-      </TableContainer>  
 
       {/* Community Facilities Table */}
       <TableContainer
@@ -294,12 +123,12 @@ export default function HallTables() {
           <TableRow>
             <TableCell colSpan={2} align="center">Community Facilities</TableCell>
           </TableRow>
-          <TableRow>
+          <TableRow className='tablehall'>
             <TableCell>Facility Type:</TableCell>
             <TableCell>Available:</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody> 
+        <TableBody className='tablehall'> 
           <TableRow>
             <TableCell>
               Games Room:
@@ -367,6 +196,176 @@ export default function HallTables() {
         </TableBody>
       </Table>
       </TableContainer>
+
+      {/* Programs Table */}
+      <TableContainer classname='table-container' 
+      sx={{ 
+        flexWrap: 'wrap', 
+
+
+        maxWidth: 0.2,
+        mt: 3,
+        justifyContent: 'space-between'
+        }} 
+        >
+      <Table  sx={{ display: 'inline', maxWidth: 0.5,}} aria-label="Programs">
+        <TableHead >
+          <TableRow > 
+            <TableCell colSpan={2} align="center" >Programs</TableCell>
+          </TableRow>
+          <TableRow className='tablehall'>
+            <TableCell>Program Type</TableCell>
+            <TableCell align="center">Available:</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody className='tablehall'>
+            <TableRow
+            >
+              <TableCell center>
+                Art Classes:
+              </TableCell>
+              <TableCell align="center">{programsArt}</TableCell>
+            </TableRow>
+
+            <TableRow
+          >
+            <TableCell center>
+              Bingo:
+            </TableCell>
+            <TableCell align="center">{programsBingo}</TableCell>
+          </TableRow>
+
+          <TableRow
+          >
+            <TableCell center>
+              Childcare:
+            </TableCell>
+            <TableCell align="center">{programsChildCare}</TableCell>
+          </TableRow>
+
+          <TableRow
+          >
+            <TableCell center>
+              Dance:
+            </TableCell>
+            <TableCell align="center">{programsDance}</TableCell>
+          </TableRow>
+
+          <TableRow
+          >
+            <TableCell center>
+              Fitness:
+            </TableCell>
+            <TableCell align="center">{programsFitness}</TableCell>
+          </TableRow>
+
+          <TableRow
+          >
+            <TableCell center>
+              Seniors Program:
+            </TableCell>
+            <TableCell align="center">{programsSeniorsProgram}</TableCell>
+          </TableRow>
+
+          <TableRow
+          >
+            <TableCell>
+              Sports:
+            </TableCell>
+            <TableCell align="center">{programsSports}</TableCell>
+          </TableRow>
+
+          <TableRow
+          >
+            <TableCell center>
+              Youth Justice:
+            </TableCell>
+            <TableCell align="center">{programsYouthJustice}</TableCell>
+          </TableRow> 
+        </TableBody>
+      </Table >
+        </TableContainer>
+  
+      <TableContainer
+            sx={{ 
+              flexWrap: 'wrap', 
+      
+               
+              maxWidth: 0.2,
+              mt: 3,
+              justifyContent: 'space-between'
+              }} 
+      >  
+      {/* Recreation Amenities Table */}
+      <Table sx={{ display: 'inline', maxWidth: 0.5}} aria-label="Recreation Amenities">
+        <TableHead>
+          <TableRow> 
+            <TableCell colSpan={2} align="center">Recreation Amenities</TableCell>
+          </TableRow>
+          <TableRow className='tablehall'>
+            <TableCell>Amenity Type</TableCell>
+            <TableCell align="center">Available:</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody className='tablehall'>
+            <TableRow
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell center>
+                Hockey Rink:
+              </TableCell>
+              <TableCell align="center">{amenities.hockeyRink}</TableCell>
+            </TableRow>
+
+            <TableRow
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell center>
+              Skating Rink:
+            </TableCell>
+            <TableCell align="center">{amenities.skatingRink}</TableCell>
+          </TableRow>
+
+          <TableRow
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell center>
+              Sports Fields:
+            </TableCell>
+            <TableCell align="center">{amenities.sportsPlayfields}</TableCell>
+          </TableRow>
+
+          <TableRow
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell center>
+              Swimming Pool:
+            </TableCell>
+            <TableCell align="center">{amenities.swimmingPool}</TableCell>
+          </TableRow>
+
+          <TableRow
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell center>
+              Tennis Courts:
+            </TableCell>
+            <TableCell align="center">{amenities.tennisCourts}</TableCell>
+          </TableRow>
+
+          <TableRow
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell center>
+              Other:
+            </TableCell>
+            <TableCell align="center">{amenities.other}</TableCell>
+          </TableRow>          
+        </TableBody>
+      </Table>
+      </TableContainer>  
+
+
       
       {/* <Table sx={{ maxWidth: 0.5}} aria-label=""></Table>
         <TableHead>

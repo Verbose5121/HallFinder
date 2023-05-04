@@ -38,10 +38,7 @@ min-width: 31%;
 box-shadow: 12px 12px 24px #8a8f9c, -12px -12px 24px #ffffff; 
 }
 
-.table-container {
-background-color: #cce1e0;
 
-}
 /* .hall-page-card {
     	background-color: #ffffff;
 	border-radius: 10px;
@@ -88,7 +85,7 @@ background-color: #cce1e0;
 .bookingform {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+
 	flex-direction: column;
 	padding: 0;
 
@@ -114,4 +111,19 @@ input {
 	margin: 8px 0;
 	width: 100%;
     z-index: 50;
+}
+
+.tablehall {
+    /* box-shadow: 3px 0px 6px 6px rgba(140,232,232,0.14);
+    -webkit-box-shadow: 3px 0px 6px 6px rgba(140,232,232,0.14);
+    -moz-box-shadow: 3px 0px 6px 6px rgba(140,232,232,0.14); */
+
+
+    box-shadow: 6px 0px 5px 0px rgba(115,112,112,0.75);
+    -webkit-box-shadow: 6px 0px 5px 0px rgba(115,112,112,0.75);
+    -moz-box-shadow: 6px 0px 5px 0px rgba(115,112,112,0.75);
+    
+    /* box-shadow: -6px 0px 5px 0px rgba(115,112,112,0.75);
+-webkit-box-shadow: -6px 0px 5px 0px rgba(115,112,112,0.75);
+-moz-box-shadow: -6px 0px 5px 0px rgba(115,112,112,0.75); */
 }

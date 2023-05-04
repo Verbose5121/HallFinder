@@ -70,7 +70,7 @@ export default function BookingForm() {
   // console.log(currentUser);
   return (
       <Box
-        component="form"
+        // component="form"
         sx={{
             '& .MuiTextField-root': { m: 1, width: '25ch', bgcolor: '#fffffff7' },
         }}
@@ -124,7 +124,7 @@ export default function BookingForm() {
           />
           <TextField
             id="cc-number"
-            label="Credit Card Number (for deposit)"
+            label="Credit Card Number"
             defaultValue=""
             variant="filled"
             minLength="16"

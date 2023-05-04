@@ -1,5 +1,6 @@
 {
   "name": "hallfinder",
+  "proxy": "http://localhost:5150",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,21 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
     "@esbuild/darwin-x64": "^0.17.18",
-    "@mapbox/mapbox-gl-directions": "^4.1.1",
     "@mapbox/mapbox-gl-geocoder": "^5.0.1",
     "@mapbox/search-js-react": "^1.0.0-beta.14",
     "@mui/icons-material": "^5.11.16",
-    "@mui/lab": "^5.0.0-alpha.128",
-    "@mui/material": "^5.12.1",
+    "@mui/material": "^5.12.2",
     "@mui/x-date-pickers": "^6.3.0",
     "@turf/turf": "^6.5.0",
+    "axios": "^1.4.0",
+    "dayjs": "^1.11.7",
     "cors": "^2.8.5",
     "date-fns": "^2.30.0",
     "firebase": "^9.19.1",
     "mapbox-gl": "^2.14.1",
+    "mui-file-input": "^2.0.0",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-big-calendar": "^1.6.9",
@@ -33,7 +35,8 @@
     "react-material-ui-carousel": "^3.4.2",
     "react-native-dotenv": "^3.4.8",
     "react-router-dom": "^6.10.0",
-    "react-swipeable-views": "^0.14.0"
+    "react-scripts": "^5.0.1",
+    "sweetalert2": "^11.7.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

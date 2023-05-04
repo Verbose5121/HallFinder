@@ -144,7 +144,7 @@ export default function BookingForm() {
             type="submit"
             id="submitformbtn"
             onClick={handleClick}
-          >Submit
+          >Book
           </Button>
 
           {/* <TextField 

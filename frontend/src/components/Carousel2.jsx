@@ -16,19 +16,19 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 //TODO: Change image source to dynamic
 const images = [
   {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
+    label: '',
     imgPath: IMAGES.image1,
   },
   {
-    label: 'Bird',
+    label: '',
     imgPath: IMAGES.image5
   },
   {
-    label: 'Bali, Indonesia',
+    label: '',
     imgPath: IMAGES.image6,
   },
   {
-    label: 'Goč, Serbia',
+    label: '',
     imgPath: IMAGES.image7,
   },
 ];

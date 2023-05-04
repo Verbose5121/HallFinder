@@ -10,24 +10,22 @@ import BookingForm from './BookingForm';
 import { DatePicker } from '@mui/x-date-pickers';
 import DateCalendarValue from './components/DatePicker';
 import { Container } from '@mui/material';
-// import Carousel from './components/carousel';
-import Carousel2 from './components/Carousel2';
 import HallTables from './components/HallDataTable';
-// import { Example, Item } from './components/Carousel3.jsx';
-
+import Carousel from './components/carousel';
 {/* <EventCalendar /> */}
 
 function HallPage() {
   return (
     <>
-    <Carousel2 className="carousel"/>
+    <Carousel className="carousel"/>
     <div className='hallpage-container'>
     
-    <HallTables />
+    <HallTables className='halltables-container' />
     
-
+    <div>
     <DateCalendarValue />
-    <BookingForm />
+    <BookingForm className='bookingform' />
+    </div>
 
     </div>
     </>

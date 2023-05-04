@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { communityData } from '../../../backend/commData';
+import { Card } from '@mui/material';
 
 function createData(website, phone, address, email, fax) {
   return { website, phone, address, email, fax };
@@ -57,20 +58,38 @@ const programRows = [
 ];
 
 export default function HallTables() {
+  const useStyles = makeStyles({
+    root: {
+      color: "red"
+    }
+  });
   return (
-    // Contact Details Table
-    <TableContainer sx={{ display: 'inline-block', minWidth: 1000, top:150 }} component={Paper}>
-      <Table sx={{ display: 'inline', minWidth: 250}} aria-label="Hall Details">
+    <>
+    {/* Contact Details Table */}
+    <TableContainer classname='table-container' 
+      sx={{ 
+        flexWrap: 'wrap', 
+        tableLayout: "auto", 
+        border: 0, 
+        maxWidth: 1,
+        top:150, 
+        // justifyContent: 'space-around'
+        }} 
+        component={Paper}>
+      
+      <Table sx={{ minWidth: 250}} aria-label="Hall Details" size="small" >
         <TableHead>
-          <TableRow> 
-            <TableCell>Hall Details</TableCell>
+          <TableRow 
+          // style={{ width: 1 }}
+          > 
+            {/* <TableCell colSpan={5}>Hall Details</TableCell> */}
           </TableRow>
           <TableRow>
             <TableCell>Website</TableCell>
-            <TableCell align="right">Phone</TableCell>
-            <TableCell align="right">Address</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Fax</TableCell>
+            <TableCell align="center">Phone</TableCell>
+            <TableCell align="center">Address</TableCell>
+            <TableCell align="center">Email</TableCell>
+            <TableCell align="center">Fax</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -82,184 +101,198 @@ export default function HallTables() {
               <TableCell component="th" scope="row">
                 {row.website}
               </TableCell>
-              <TableCell align="right">{row.phone}</TableCell>
-              <TableCell align="right">{row.address}</TableCell>
-              <TableCell align="right">{row.email}</TableCell>
-              <TableCell align="right">{row.fax}</TableCell>
+              <TableCell align="center">{row.phone}</TableCell>
+              <TableCell align="center">{row.address}</TableCell>
+              <TableCell align="center">{row.email}</TableCell>
+              <TableCell align="center">{row.fax}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+      </TableContainer>
 
       {/* Programs Table */}
-      <Table sx={{ display: 'inline', maxWidth: 0.5}} aria-label="Programs">
+      <TableContainer classname='table-container' 
+      sx={{ 
+        flexWrap: 'wrap', 
+
+
+        maxWidth: 0.2,
+        mt: 3,
+        justifyContent: 'space-between'
+        }} 
+      >
+      <Table sx={{ display: 'inline', maxWidth: 0.5,}} aria-label="Programs">
         <TableHead>
-          <TableRow> 
-            <TableCell>Programs</TableCell>
+          <TableRow > 
+            <TableCell colSpan={2} align="center">Programs</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Program Type</TableCell>
-            <TableCell align="right">Available:</TableCell>
+            <TableCell align="center">Available:</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
             <TableRow
-              key={programRows.artClasses}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell center>
                 Art Classes:
               </TableCell>
-              <TableCell align="right">{programsArt}</TableCell>
+              <TableCell align="center">{programsArt}</TableCell>
             </TableRow>
 
             <TableRow
-            key={programRows.bingo}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell center>
               Bingo:
             </TableCell>
-            <TableCell align="right">{programsBingo}</TableCell>
+            <TableCell align="center">{programsBingo}</TableCell>
           </TableRow>
 
           <TableRow
-            key={programRows.childCare}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell center>
               Childcare:
             </TableCell>
-            <TableCell align="right">{programsChildCare}</TableCell>
+            <TableCell align="center">{programsChildCare}</TableCell>
           </TableRow>
 
           <TableRow
-            key={programRows.dance}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell center>
               Dance:
             </TableCell>
-            <TableCell align="right">{programsDance}</TableCell>
+            <TableCell align="center">{programsDance}</TableCell>
           </TableRow>
 
           <TableRow
-            key={programRows.fitness}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell center>
               Fitness:
             </TableCell>
-            <TableCell align="right">{programsFitness}</TableCell>
+            <TableCell align="center">{programsFitness}</TableCell>
           </TableRow>
 
           <TableRow
-            key={programRows.seniorsProgram}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell center>
               Seniors Program:
             </TableCell>
-            <TableCell align="right">{programsSeniorsProgram}</TableCell>
+            <TableCell align="center">{programsSeniorsProgram}</TableCell>
           </TableRow>
 
           <TableRow
-            key={programRows.sports}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell>
               Sports:
             </TableCell>
-            <TableCell align="right">{programsSports}</TableCell>
+            <TableCell align="center">{programsSports}</TableCell>
           </TableRow>
 
           <TableRow
-            key={programRows.youthJustice}
-            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell center>
               Youth Justice:
             </TableCell>
-            <TableCell align="right">{programsYouthJustice}</TableCell>
+            <TableCell align="center">{programsYouthJustice}</TableCell>
           </TableRow> 
         </TableBody>
       </Table>
-
-
+        </TableContainer>
+  
+      <TableContainer
+            sx={{ 
+              flexWrap: 'wrap', 
+      
+               
+              maxWidth: 0.2,
+              mt: 3,
+              justifyContent: 'space-between'
+              }} 
+      >  
       {/* Recreation Amenities Table */}
-      <Table sx={{ maxWidth: 0.5}} aria-label="Recreation Amenities">
+      <Table sx={{ display: 'inline', maxWidth: 0.5}} aria-label="Recreation Amenities">
         <TableHead>
           <TableRow> 
-            <TableCell>Recreation Amenities</TableCell>
+            <TableCell colSpan={2} align="center">Recreation Amenities</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Amenity Type</TableCell>
-            <TableCell align="right">Available:</TableCell>
+            <TableCell align="center">Available:</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
             <TableRow
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell center>
                 Hockey Rink:
               </TableCell>
-              <TableCell align="right">{amenities.hockeyRink}</TableCell>
+              <TableCell align="center">{amenities.hockeyRink}</TableCell>
             </TableRow>
 
             <TableRow
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell center>
               Skating Rink:
             </TableCell>
-            <TableCell align="right">{amenities.skatingRink}</TableCell>
+            <TableCell align="center">{amenities.skatingRink}</TableCell>
           </TableRow>
 
           <TableRow
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell center>
               Sports Fields:
             </TableCell>
-            <TableCell align="right">{amenities.sportsPlayfields}</TableCell>
+            <TableCell align="center">{amenities.sportsPlayfields}</TableCell>
           </TableRow>
 
           <TableRow
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell center>
               Swimming Pool:
             </TableCell>
-            <TableCell align="right">{amenities.swimmingPool}</TableCell>
+            <TableCell align="center">{amenities.swimmingPool}</TableCell>
           </TableRow>
 
           <TableRow
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell center>
               Tennis Courts:
             </TableCell>
-            <TableCell align="right">{amenities.tennisCourts}</TableCell>
+            <TableCell align="center">{amenities.tennisCourts}</TableCell>
           </TableRow>
 
           <TableRow
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
-            <TableCell component="th" scope="row">
+            <TableCell center>
               Other:
             </TableCell>
-            <TableCell align="right">{amenities.other}</TableCell>
+            <TableCell align="center">{amenities.other}</TableCell>
           </TableRow>          
         </TableBody>
       </Table>
-
+      </TableContainer>  
 
       {/* Community Facilities Table */}
-      <Table sx={{ maxWidth: 0.5}} aria-label="Community Facilities">
+      <TableContainer
+            sx={{ 
+        flexWrap: 'wrap', 
+
+
+         maxWidth: 0.2,
+        mt: 3, 
+        justifyContent: 'space-between'
+        }} > 
+      <Table sx={{ display: 'inline', maxWidth: 0.5}} aria-label="Community Facilities">
         <TableHead>
           <TableRow>
-            <TableCell>Community Facilities</TableCell>
+            <TableCell colSpan={2} align="center">Community Facilities</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Facility Type:</TableCell>
@@ -271,68 +304,69 @@ export default function HallTables() {
             <TableCell>
               Games Room:
             </TableCell>
-            <TableCell align="right">{facilities.gamesRoom}</TableCell>
+            <TableCell align="center">{facilities.gamesRoom}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>
               Gym:
             </TableCell>
-            <TableCell align="right">{facilities.gym}</TableCell>
+            <TableCell align="center">{facilities.gym}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>
             Indoor Fireplace:
             </TableCell>
-            <TableCell align="right">{facilities.indoorFireplace}
+            <TableCell align="center">{facilities.indoorFireplace}
             </TableCell>
           </TableRow>            
           <TableRow>
             <TableCell>
               Kitchen:
             </TableCell>
-            <TableCell align="right">{facilities.kitchen}</TableCell>
+            <TableCell align="center">{facilities.kitchen}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>
             Lounge:
             </TableCell>
-            <TableCell align="right">{facilities.lounge}
+            <TableCell align="center">{facilities.lounge}
             </TableCell>
           </TableRow>            
           <TableRow>
             <TableCell>
               Meeting Rooms:
             </TableCell>
-            <TableCell align="right">{facilities.meetingRooms}</TableCell>
+            <TableCell align="center">{facilities.meetingRooms}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>
             Outdoor BBQ:
             </TableCell>
-            <TableCell align="right">{facilities.outdoorBBQ}
+            <TableCell align="center">{facilities.outdoorBBQ}
             </TableCell>
           </TableRow>            
           <TableRow>
             <TableCell>
               Kitchen:
             </TableCell>
-            <TableCell align="right">{facilities.soundSystem}</TableCell>
+            <TableCell align="center">{facilities.soundSystem}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>
             Stage:
             </TableCell>
-            <TableCell align="right">{facilities.stage}
+            <TableCell align="center">{facilities.stage}
             </TableCell>
           </TableRow>            
           <TableRow>
             <TableCell>
               Wheelchair Access:
             </TableCell>
-            <TableCell align="right">{facilities.wheelchairAccess}</TableCell>
+            <TableCell align="center">{facilities.wheelchairAccess}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
+      </TableContainer>
       
       {/* <Table sx={{ maxWidth: 0.5}} aria-label=""></Table>
         <TableHead>
@@ -348,5 +382,6 @@ export default function HallTables() {
       </Table> */}
             
 
-    </TableContainer>
+    
+    </>
     )}

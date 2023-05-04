@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { uploadPhoto, useAuth, storage } from "./firebase";
-//import './Style.css'
-//import "./style.css";
+
 import './HallPage.css'
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import Box from '@mui/material/Box';

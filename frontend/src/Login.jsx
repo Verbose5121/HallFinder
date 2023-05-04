@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth, logInWithEmailAndPassword, signInWithGoogle,
   registerWithEmailAndPassword} from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import "./style.css";
+import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -32,7 +32,7 @@ function Login() {
   <>
       <div className="container" id="container">
     <div className="form-container sign-up-container">
-      <form action="#">
+      <form className="login-form" action="#">
         <h1>Create Account</h1>
         <div className="social-container">
         </div>
